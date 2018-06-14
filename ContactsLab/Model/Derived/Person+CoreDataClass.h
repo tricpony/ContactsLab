@@ -15,6 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSManagedObject
+@property (readonly, nonatomic) NSString *fullname;
 
 + (Person*)createPersonNamed:(NSString*)name withContext:(NSManagedObjectContext*)ctx;
 - (void)fillAddressesFrom:(NSArray*)addressStrings context:(NSManagedObjectContext*)ctx;

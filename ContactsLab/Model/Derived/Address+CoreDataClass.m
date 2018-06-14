@@ -65,11 +65,15 @@
     NSDictionary *addressInfo;
     
     addressInfo = [self parseAddress:address];
-    addressObj = [[CoreDataUtility sharedInstance] insertNewAddressWithEditContext:ctx];
-    addressObj.street = addressInfo[STREET];
-    addressObj.city = addressInfo[CITY];
-    addressObj.state = addressInfo[STATE];
-    addressObj.zip = addressInfo[ZIP];
+    addressObj = [[CoreDataUtility sharedInstance] fetchAddressMatchingStreet:addressInfo[STREET] zip:addressInfo[ZIP] withEditContext:ctx];
+    
+    if (!addressObj) {
+        addressObj = [[CoreDataUtility sharedInstance] insertNewAddressWithEditContext:ctx];
+        addressObj.street = addressInfo[STREET];
+        addressObj.city = addressInfo[CITY];
+        addressObj.state = addressInfo[STATE];
+        addressObj.zip = addressInfo[ZIP];
+    }
     
     return addressObj;
 }

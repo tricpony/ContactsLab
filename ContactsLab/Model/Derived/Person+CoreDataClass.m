@@ -97,6 +97,25 @@
     }
 }
 
+- (NSString*)fullname
+{
+    if (self.firstname && self.lastname) {
+        return [NSString stringWithFormat:@"%@ %@",self.firstname,self.lastname];
+    }
+    
+    return @"";
+}
+
+- (NSString*)displayName
+{
+    return self.fullname;
+}
+
+- (NSString*)searchTerm
+{
+    return self.fullname;
+}
+
 - (void)awakeFromInsert
 {
     [super awakeFromInsert];

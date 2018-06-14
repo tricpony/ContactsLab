@@ -11,6 +11,8 @@
 
 @class Company;
 @class Person;
+@class Phone;
+@class Address;
 @interface CoreDataUtility : NSObject
 
 + (CoreDataUtility*)sharedInstance;
@@ -18,6 +20,8 @@
 /**
  Fetch Requests
  **/
+- (NSFetchRequest*)fetchRequestForCompanyContainingSearchTerm:(NSString*)searchTerm withEditContext:(NSManagedObjectContext*)ctx;
+- (NSFetchRequest*)fetchRequestForPersonContainingSearchTerm:(NSString*)searchTerm withEditContext:(NSManagedObjectContext*)ctx;
 
 /**
  Fetching
@@ -26,7 +30,10 @@
 - (Company*)fetchCompanyWithOwnerName:(NSString*)ownerName withEditContext:(NSManagedObjectContext*)ctx;
 - (NSArray*)fetchCompanyBrandsOwnedBy:(NSString*)ownerName withEditContext:(NSManagedObjectContext*)ctx;
 - (NSArray*)fetchAllCompaniesWithContext:(NSManagedObjectContext*)ctx;
+
+- (Address*)fetchAddressMatchingStreet:(NSString*)street zip:(NSString*)zip withEditContext:(NSManagedObjectContext*)ctx;
 - (Person*)fetchPersonNamed:(NSString*)firstname lastname:(NSString*)lastname withEditContext:(NSManagedObjectContext*)ctx;
+- (Phone*)fetchPhoneMatchingNumber:(NSString*)number withEditContext:(NSManagedObjectContext*)ctx;
 
 /**
  Inserting

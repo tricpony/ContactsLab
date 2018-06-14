@@ -6,10 +6,12 @@
 //  Copyright © 2018 Gigabit LLC. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (ContactsLab)
 
+- (NSMutableArray*)hexAsRGB;
 - (NSString*)trim;
+- (NSAttributedString*)attributedStringHighlightingRange:(NSRange)range color:(UIColor*)highLightColor;
 
 @end

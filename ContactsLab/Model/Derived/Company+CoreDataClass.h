@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (Company*)createCompanyWithInfo:(NSDictionary*)info editContext:(NSManagedObjectContext*)ctx;
 - (void)fillCompanyBrandsWithContext:(NSManagedObjectContext*)ctx;
+- (NSString*)searchTerm;
+- (NSString*)displayName;
 
 @end
 

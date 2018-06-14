@@ -16,8 +16,12 @@
 {
     Phone *phoneObj;
     
-    phoneObj = [[CoreDataUtility sharedInstance] insertNewPhoneWithEditContext:ctx];
-    phoneObj.number = phone;
+    phoneObj = [[CoreDataUtility sharedInstance] fetchPhoneMatchingNumber:phone withEditContext:ctx];
+    
+    if (!phoneObj) {
+        phoneObj = [[CoreDataUtility sharedInstance] insertNewPhoneWithEditContext:ctx];
+        phoneObj.number = phone;
+    }
     
     return phoneObj;
 }

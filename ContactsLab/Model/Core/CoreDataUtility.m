@@ -39,6 +39,35 @@ static CoreDataUtility *sharedInstance = nil;
     
 }
 
+- (NSFetchRequest*)fetchRequestForCompanyContainingSearchTerm:(NSString*)searchTerm withEditContext:(NSManagedObjectContext*)ctx
+{
+    NSPredicate *q;
+    NSFetchRequest *request;
+    NSSortDescriptor *descriptor;
+    
+    descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    q = [self containsWithPredicateForKey:@"name" andValue:searchTerm];
+    request = [self fetchRequestForEntityNamed:@"Company" withEditContext:ctx predicate:q sortDescriptors:@[descriptor]];
+    
+    return request;
+}
+
+- (NSFetchRequest*)fetchRequestForPersonContainingSearchTerm:(NSString*)searchTerm withEditContext:(NSManagedObjectContext*)ctx
+{
+    NSPredicate *q;
+    NSPredicate *lq;
+    NSFetchRequest *request;
+    NSSortDescriptor *descriptor;
+    
+    descriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastname" ascending:YES];
+    q = [self containsWithPredicateForKey:@"firstname" andValue:searchTerm];
+    lq = [self containsWithPredicateForKey:@"lastname" andValue:searchTerm];
+    q = [NSCompoundPredicate orPredicateWithSubpredicates:@[q,lq]];
+    request = [self fetchRequestForEntityNamed:@"Person" withEditContext:ctx predicate:q sortDescriptors:@[descriptor]];
+    
+    return request;
+}
+
 #pragma mark
 #pragma mark ---- Fetching EOS ----
 
@@ -96,6 +125,17 @@ static CoreDataUtility *sharedInstance = nil;
     return [self fetchEntityNamed:@"Company" withEditContext:ctx predicate:nil];
 }
 
+- (Address*)fetchAddressMatchingStreet:(NSString*)street zip:(NSString*)zip withEditContext:(NSManagedObjectContext*)ctx
+{
+    NSPredicate *q;
+    NSPredicate *lq;
+    
+    q = [self equalToPredicateForKey:@"street" andValue:street];
+    lq = [self equalToPredicateForKey:@"zip" andValue:zip];
+    q = [NSCompoundPredicate andPredicateWithSubpredicates:@[q,lq]];
+    return [[self fetchEntityNamed:@"Address" withEditContext:ctx predicate:q] lastObject];
+}
+
 - (Person*)fetchPersonNamed:(NSString*)firstname lastname:(NSString*)lastname withEditContext:(NSManagedObjectContext*)ctx
 {
     NSPredicate *q;
@@ -105,6 +145,14 @@ static CoreDataUtility *sharedInstance = nil;
     lq = [self equalToPredicateForKey:@"lastname" andValue:lastname];
     q = [NSCompoundPredicate andPredicateWithSubpredicates:@[q,lq]];
     return [[self fetchEntityNamed:@"Person" withEditContext:ctx predicate:q] lastObject];
+}
+
+- (Phone*)fetchPhoneMatchingNumber:(NSString*)number withEditContext:(NSManagedObjectContext*)ctx
+{
+    NSPredicate *q;
+    
+    q = [self equalToPredicateForKey:@"number" andValue:number];
+    return [[self fetchEntityNamed:@"Phone" withEditContext:ctx predicate:q] lastObject];
 }
 
 #pragma mark ---- New EOS ----

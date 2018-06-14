@@ -28,11 +28,11 @@
             company = [[CoreDataUtility sharedInstance] insertNewCompanyWithEditContext:ctx];
             
             company.name = name;
-            [company fillAddressesFrom:info[COMPANY_ADDRESSES] context:ctx];
-            [company fillPhonesFrom:info[COMPANY_PHONES] context:ctx];
-            [company fillManagersFrom:info[COMPANY_MANAGERS] context:ctx];
             [company fillOwnedBy:info[COMPANY_PARENT]];
         }
+        [company fillAddressesFrom:info[COMPANY_ADDRESSES] context:ctx];
+        [company fillPhonesFrom:info[COMPANY_PHONES] context:ctx];
+        [company fillManagersFrom:info[COMPANY_MANAGERS] context:ctx];
         [company fillCompanyBrandsWithContext:ctx];
     }
     
@@ -90,6 +90,16 @@
     for (Company *brand in brands) {
         [self addBrandsObject:brand];
     }
+}
+
+- (NSString*)searchTerm
+{
+    return self.name;
+}
+
+- (NSString*)displayName
+{
+    return self.name;
 }
 
 - (void)awakeFromInsert
