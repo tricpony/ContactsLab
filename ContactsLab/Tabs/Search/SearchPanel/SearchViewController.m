@@ -11,13 +11,15 @@
 #import "CoreDataUtility.h"
 #import "Constants.h"
 
+#import "UIView+ContactsLab.h"
+
 @interface SearchViewController () <UISearchResultsUpdating>
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSMutableArray *searchControllerSearchArgs;
 @property (readonly, nonatomic) AutoCompleteSearchController *autoCompleteSearchController;
 @property (weak, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UIToolbar *keyboardToolbar;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *searchBarCanvas;
 
 @end
 
@@ -28,6 +30,11 @@
     [super viewDidLoad];
     [self setupSearchController];
     
+    
+//    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]] setBarTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         //alert me when the keyboard is about to display
         [[NSNotificationCenter defaultCenter] addObserver: self
@@ -103,13 +110,17 @@
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:autoCompleteVC];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = YES;
+//    self.searchController.searchBar.barTintColor = self.navigationController.navigationBar.backgroundColor;
     self.searchController.searchBar.barTintColor = [UIColor blackColor];
     self.definesPresentationContext = YES;
     autoCompleteVC.searchControllerSearchArgs = self.searchControllerSearchArgs;
     autoCompleteVC.searchController = self.searchController;
     self.searchBar = self.searchController.searchBar;
     [self.searchBar setAccessibilityLabel:@"search bar"];
-    self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    //insert the search bar
+    [self.searchBarCanvas addSubview:self.searchController.searchBar];
+//    [self.searchBarCanvas pinnView:self.searchController.searchBar toEdgeOffsets:EdgeOffsetMake(0, 0, 0, 0)];
 }
 
 #pragma mark UISearchResultsUpdating
@@ -127,16 +138,17 @@
 
 #pragma mark UISearchController Helper
 
-- (void)viewDidLayoutSubviews
-{
-    CGFloat w;
-    CGRect frame;
-    CGRect searchBarFrame = self.searchController.searchBar.frame;
-    
-    w = self.view.frame.size.width;
-    frame = CGRectMake(searchBarFrame.origin.x, searchBarFrame.origin.y, w, searchBarFrame.size.height);
-    self.searchController.searchBar.frame = frame;
-}
+//- (void)viewDidLayoutSubviews
+//{
+//    CGFloat w;
+//    CGRect frame;
+//    CGRect searchBarFrame = self.searchController.searchBar.frame;
+//    
+//    w = self.view.frame.size.width;
+//    frame = CGRectMake(searchBarFrame.origin.x, searchBarFrame.origin.y, w, searchBarFrame.size.height + 22);
+//    frame = CGRectMake(searchBarFrame.origin.x, searchBarFrame.origin.y, w, searchBarFrame.size.height);
+//    self.searchController.searchBar.frame = frame;
+//}
 
 - (BOOL)searchBarIsEmpty
 {

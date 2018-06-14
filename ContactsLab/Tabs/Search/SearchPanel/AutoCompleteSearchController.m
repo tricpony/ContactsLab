@@ -25,8 +25,10 @@
     [super viewDidLoad];
     
     //this fixed a gap above the top of the table view
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.tableView setIsAccessibilityElement:YES];
+    self.searchController.searchBar.searchFieldBackgroundPositionAdjustment = UIOffsetMake(0, 2);
+    //searchBar.searchFieldBackgroundPositionAdjustment
 }
 
 #pragma mark Table view methods

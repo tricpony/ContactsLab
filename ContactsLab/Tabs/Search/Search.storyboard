@@ -15,31 +15,35 @@
             <objects>
                 <viewController id="2fO-JI-RUY" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gx7-di-ayc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9l0-pR-ELB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matte_background" translatesAutoresizingMaskIntoConstraints="NO" id="4ff-c2-8j9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cei-jd-pym">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="2fO-JI-RUY" id="5hp-xF-pNP"/>
-                                    <outlet property="delegate" destination="2fO-JI-RUY" id="Idw-SE-TJ7"/>
-                                </connections>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Ik7-zq-b7X"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="bottom" secondItem="9l0-pR-ELB" secondAttribute="bottom" id="ADq-l6-hU4"/>
-                            <constraint firstItem="9l0-pR-ELB" firstAttribute="top" secondItem="8Xp-Xv-AU4" secondAttribute="top" id="Gg8-1q-UAy"/>
-                            <constraint firstItem="9l0-pR-ELB" firstAttribute="leading" secondItem="8Xp-Xv-AU4" secondAttribute="leading" id="qH1-PU-otJ"/>
-                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="trailing" secondItem="9l0-pR-ELB" secondAttribute="trailing" id="vIU-fx-haj"/>
+                            <constraint firstItem="Cei-jd-pym" firstAttribute="leading" secondItem="8Xp-Xv-AU4" secondAttribute="leading" id="ZWp-Df-Oxl"/>
+                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="bottom" secondItem="4ff-c2-8j9" secondAttribute="bottom" id="ZnZ-nL-Pd9"/>
+                            <constraint firstItem="4ff-c2-8j9" firstAttribute="top" secondItem="8Xp-Xv-AU4" secondAttribute="top" id="b8w-0x-CX0"/>
+                            <constraint firstItem="4ff-c2-8j9" firstAttribute="leading" secondItem="8Xp-Xv-AU4" secondAttribute="leading" id="i4t-xa-eYI"/>
+                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="trailing" secondItem="4ff-c2-8j9" secondAttribute="trailing" id="slT-B0-H05"/>
+                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="trailing" secondItem="Cei-jd-pym" secondAttribute="trailing" id="vBj-iV-IYD"/>
+                            <constraint firstItem="Cei-jd-pym" firstAttribute="top" secondItem="8Xp-Xv-AU4" secondAttribute="top" id="xF7-Aa-ttr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Xp-Xv-AU4"/>
                     </view>
                     <navigationItem key="navigationItem" id="GUL-i4-Qt1"/>
                     <connections>
-                        <outlet property="tableView" destination="9l0-pR-ELB" id="DfB-Qp-Vcl"/>
+                        <outlet property="searchBarCanvas" destination="Cei-jd-pym" id="mMN-14-hIi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kR0-d1-Ruf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,7 +73,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0u3-uF-HYx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="caV-oQ-5vg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorTransitionMaskImage="matte_background" id="caV-oQ-5vg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -83,4 +87,7 @@
             <point key="canvasLocation" x="-1977" y="91"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="matte_background" width="640" height="960"/>
+    </resources>
 </document>
