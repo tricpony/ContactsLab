@@ -52,7 +52,7 @@
         <!--Detail-->
         <scene sceneID="UUe-eA-W67">
             <objects>
-                <viewControllerPlaceholder storyboardName="Detail" id="3DE-Nj-uzw" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="DetailNavStackScene" storyboardName="Detail" id="3DE-Nj-uzw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8B-pt-mMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1034" y="66"/>
