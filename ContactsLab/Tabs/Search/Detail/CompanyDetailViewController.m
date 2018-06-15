@@ -89,10 +89,16 @@
 
 - (NSString*)cellIdentifierAtIndexPath:(NSIndexPath*)indexPath
 {
-    if (indexPath.section == 0) {
-        return ADDRESS_CELL_ID;
-    }
+    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
     
+    switch (groupedByType) {
+        case GroupedBy_Address:
+            return ADDRESS_CELL_ID;
+
+        default:
+            break;
+    }
+
     return NSStringFromClass([self class]);
 }
 
@@ -166,21 +172,29 @@
     NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];    
     UITableViewCell *cell = [self nextCellForTableView:tv atIndexPath:indexPath];
     Address *nextItem = nil;
-    
-    nextItem = contacts[indexPath.row];
-    
-    if (indexPath.section == 0) {
-        AddressTableCell *addressCell = (id)cell;
-        
-        [addressCell clear];
-        [addressCell fillCellWithInfo:nextItem.addressAsDictionary];
-        
-    }else{
-        Phone *phone = (id)nextItem;
-        NSString *titleText;
+    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
+    AddressTableCell *addressCell;
+    Phone *phone;
+    NSString *titleText;
 
-        titleText = phone.number;
-        cell.textLabel.text = titleText;
+    nextItem = contacts[indexPath.row];
+    switch (groupedByType) {
+        case GroupedBy_Address:
+            addressCell = (id)cell;
+            [addressCell clear];
+            [addressCell fillCellWithInfo:nextItem.addressAsDictionary];
+
+            break;
+            
+        case GroupedBy_Phone:
+            phone = (id)nextItem;
+            
+            titleText = phone.number;
+            cell.textLabel.text = titleText;
+
+            break;
+        default:
+            break;
     }
     cell.accessoryType = UITableViewCellAccessoryNone;
     

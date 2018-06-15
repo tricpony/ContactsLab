@@ -131,6 +131,11 @@
     return self.name;
 }
 
+- (BOOL)isCorpOwner
+{
+    return [self.corpOwners count] == 0;
+}
+
 - (BOOL)hasCorpOwners
 {
     return [self.corpOwners count];

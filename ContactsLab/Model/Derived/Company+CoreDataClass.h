@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Company : NSManagedObject
 @property (readonly, nonatomic) NSString *displayName;
+@property (readonly, nonatomic) BOOL isCorpOwner;
 @property (readonly, nonatomic) BOOL hasCorpOwners;
 @property (readonly, nonatomic) BOOL hasBrands;
 @property (readonly, nonatomic) BOOL hasManagers;

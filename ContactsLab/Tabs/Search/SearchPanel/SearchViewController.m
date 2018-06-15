@@ -310,6 +310,9 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     }else{
         Company *company = (id)contact;
         
+        if (company.isCorpOwner) {
+            [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_CorpOwner),GROUP_DATA_KEY:@[company]}];
+        }
         if (company.hasCorpOwners) {
             [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_CorpOwner),GROUP_DATA_KEY:[company.corpOwners allObjects]}];
         }
