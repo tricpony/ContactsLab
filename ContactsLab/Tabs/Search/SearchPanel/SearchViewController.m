@@ -51,6 +51,12 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"Search Contacts";
+}
+
 #pragma mark SearchBar Controller
 
 - (void)configureFRCWithSearchText:(NSString*)searchTerm
