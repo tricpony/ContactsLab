@@ -294,7 +294,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 
 #pragma mark Grouped Search
 
-- (void)performGroupedResultsSearchForSearchTerm:(NSManagedObject*)contact
+- (void)assembleDataSourceFrom:(NSManagedObject*)contact
 {
     BOOL isPerson = [contact isKindOfClass:[Person class]];
 

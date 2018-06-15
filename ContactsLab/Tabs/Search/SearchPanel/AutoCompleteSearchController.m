@@ -128,7 +128,7 @@
     
     [self.searchController setActive:NO];
     self.searchController.searchBar.text = [nextItem searchTerm];
-    [vc performGroupedResultsSearchForSearchTerm:nextItem];
+    [vc assembleDataSourceFrom:nextItem];
 }
 
 @end

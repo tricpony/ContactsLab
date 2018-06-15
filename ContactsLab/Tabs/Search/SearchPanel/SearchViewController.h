@@ -11,6 +11,6 @@
 
 @interface SearchViewController : UIViewController
 
-- (void)performGroupedResultsSearchForSearchTerm:(NSManagedObject*)searchTerm;
+- (void)assembleDataSourceFrom:(NSManagedObject*)searchTerm;
 
 @end
