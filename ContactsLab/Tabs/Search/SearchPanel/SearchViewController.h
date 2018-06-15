@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-#define FRC @"frc"
-
-@class NSFetchedResultsController;
 @interface SearchViewController : UIViewController
+
+- (void)performGroupedResultsSearchForSearchTerm:(NSManagedObject*)searchTerm;
 
 @end

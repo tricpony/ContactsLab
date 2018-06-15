@@ -7,6 +7,7 @@
 //
 
 #import "NSString+ContactsLab.h"
+#import "Constants.h"
 
 @implementation NSString (ContactsLab)
 
@@ -86,6 +87,37 @@
         [attributedString addAttribute:NSBackgroundColorAttributeName value:highLightColor range:range];
     }
     return attributedString;
+}
+
+- (NSDictionary*)parseFirstAndLastName
+{
+    if ([self rangeOfString:@" "].location == NSNotFound) return nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\b[a-z]+\\b"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:NULL];
+    
+    NSMutableDictionary *parsedName = nil;
+    NSInteger i = 0;
+    NSArray *matches = [regex matchesInString:self
+                                      options:0
+                                        range:NSMakeRange(0, [self length])];
+    for (NSTextCheckingResult *match in matches) {
+        NSRange r = [match rangeAtIndex:0];
+        NSString *key = FIRST;
+        NSString *nameSeg = nil;
+        
+        if (!parsedName) {
+            parsedName = [NSMutableDictionary dictionaryWithCapacity:2];
+        }
+        if (i == 1) {
+            key = LAST;
+        }
+        
+        nameSeg = [self substringWithRange:r];
+        parsedName[key] = nameSeg;
+        ++i;
+    }
+    return parsedName;
 }
 
 @end

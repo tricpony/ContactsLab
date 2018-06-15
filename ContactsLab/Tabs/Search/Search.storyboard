@@ -28,9 +28,20 @@
                                     <constraint firstAttribute="height" constant="56" id="Ik7-zq-b7X"/>
                                 </constraints>
                             </view>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rAS-R6-yLN">
+                                <rect key="frame" x="0.0" y="56" width="375" height="547"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2fO-JI-RUY" id="MoP-EJ-bCK"/>
+                                    <outlet property="delegate" destination="2fO-JI-RUY" id="9F4-wg-CW4"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rAS-R6-yLN" firstAttribute="top" secondItem="Cei-jd-pym" secondAttribute="bottom" id="Hhi-tP-Y8I"/>
+                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="trailing" secondItem="rAS-R6-yLN" secondAttribute="trailing" id="IAs-nh-fGg"/>
+                            <constraint firstItem="rAS-R6-yLN" firstAttribute="leading" secondItem="8Xp-Xv-AU4" secondAttribute="leading" id="YSp-eJ-4bJ"/>
                             <constraint firstItem="Cei-jd-pym" firstAttribute="leading" secondItem="8Xp-Xv-AU4" secondAttribute="leading" id="ZWp-Df-Oxl"/>
                             <constraint firstItem="8Xp-Xv-AU4" firstAttribute="bottom" secondItem="4ff-c2-8j9" secondAttribute="bottom" id="ZnZ-nL-Pd9"/>
                             <constraint firstItem="4ff-c2-8j9" firstAttribute="top" secondItem="8Xp-Xv-AU4" secondAttribute="top" id="b8w-0x-CX0"/>
@@ -38,17 +49,28 @@
                             <constraint firstItem="8Xp-Xv-AU4" firstAttribute="trailing" secondItem="4ff-c2-8j9" secondAttribute="trailing" id="slT-B0-H05"/>
                             <constraint firstItem="8Xp-Xv-AU4" firstAttribute="trailing" secondItem="Cei-jd-pym" secondAttribute="trailing" id="vBj-iV-IYD"/>
                             <constraint firstItem="Cei-jd-pym" firstAttribute="top" secondItem="8Xp-Xv-AU4" secondAttribute="top" id="xF7-Aa-ttr"/>
+                            <constraint firstItem="8Xp-Xv-AU4" firstAttribute="bottom" secondItem="rAS-R6-yLN" secondAttribute="bottom" id="xSM-jp-TD1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Xp-Xv-AU4"/>
                     </view>
                     <navigationItem key="navigationItem" id="GUL-i4-Qt1"/>
                     <connections>
-                        <outlet property="searchBarCanvas" destination="Cei-jd-pym" id="mMN-14-hIi"/>
+                        <outlet property="searchBarCanvas" destination="Cei-jd-pym" id="y0V-fT-Pqr"/>
+                        <outlet property="tableView" destination="rAS-R6-yLN" id="syv-PH-vAJ"/>
+                        <segue destination="FUn-iC-78b" kind="showDetail" identifier="detailSegue" id="xCR-71-qFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kR0-d1-Ruf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1183" y="90"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="Rgc-sh-vgf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="FUn-iC-78b" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VJ-zs-8u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1183" y="551"/>
         </scene>
         <!--Auto Complete Search Controller-->
         <scene sceneID="0EV-Ns-z3f">
@@ -73,7 +95,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0u3-uF-HYx" customClass="SearchNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorTransitionMaskImage="matte_background" id="caV-oQ-5vg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="caV-oQ-5vg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

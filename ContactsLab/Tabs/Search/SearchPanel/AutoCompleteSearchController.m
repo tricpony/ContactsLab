@@ -8,6 +8,7 @@
 
 #import "AutoCompleteSearchController.h"
 #import "SearchViewController.h"
+#import "Constants.h"
 
 #import "Company+CoreDataClass.h"
 #import "Person+CoreDataClass.h"
@@ -79,7 +80,7 @@
 
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 38.0;
+    return 30.0;
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
@@ -127,6 +128,7 @@
     
     [self.searchController setActive:NO];
     self.searchController.searchBar.text = [nextItem searchTerm];
+    [vc performGroupedResultsSearchForSearchTerm:nextItem];
 }
 
 @end

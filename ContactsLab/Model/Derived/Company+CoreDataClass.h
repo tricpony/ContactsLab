@@ -15,11 +15,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Company : NSManagedObject
+@property (readonly, nonatomic) NSString *displayName;
+@property (readonly, nonatomic) BOOL hasCorpOwners;
+@property (readonly, nonatomic) BOOL hasBrands;
+@property (readonly, nonatomic) BOOL hasManagers;
+@property (readonly, nonatomic) BOOL hasAddresses;
+@property (readonly, nonatomic) BOOL hasPhones;
+@property (readonly, nonatomic) NSArray *addressesAsDictionaries;
 
 + (Company*)createCompanyWithInfo:(NSDictionary*)info editContext:(NSManagedObjectContext*)ctx;
 - (void)fillCompanyBrandsWithContext:(NSManagedObjectContext*)ctx;
 - (NSString*)searchTerm;
-- (NSString*)displayName;
 
 @end
 

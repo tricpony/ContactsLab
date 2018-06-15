@@ -10,6 +10,7 @@
 #import "Address+CoreDataClass.h"
 #import "CoreDataUtility.h"
 #import "NSString+ContactsLab.h"
+#import "Constants.h"
 
 #define STREET @"street"
 #define CITY @"city"
@@ -76,6 +77,26 @@
     }
     
     return addressObj;
+}
+
+- (NSDictionary*)addressAsDictionary
+{
+    NSMutableDictionary *addressInfo = [NSMutableDictionary dictionaryWithCapacity:4];
+            
+    if (self.street) {
+        addressInfo[STREET_KEY] = self.street;
+    }
+    if (self.city) {
+        addressInfo[CITY_KEY] = self.city;
+    }
+    if (self.state) {
+        addressInfo[STATE_KEY] = self.state;
+    }
+    if (self.zip) {
+        addressInfo[ZIP_KEY] = self.zip;
+    }
+    
+    return addressInfo;
 }
 
 - (void)awakeFromInsert

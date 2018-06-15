@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *lastname;
 @property (nullable, nonatomic, retain) NSSet<Address *> *addresses;
 @property (nullable, nonatomic, retain) NSSet<Phone *> *phones;
+@property (nullable, nonatomic, copy) Company *company;
 
 @end
 

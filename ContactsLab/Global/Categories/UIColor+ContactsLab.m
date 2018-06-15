@@ -16,6 +16,14 @@
     return [UIColor colorWithRed:65/255.f green:122/255.f blue:160/255.f alpha:1.0];
 }
 
+/**
+ http://www.blooberry.com/indexdot/color/x11makerFrameNS.htm
+ **/
++ (UIColor*)teal
+{
+    return [UIColor colorForHexRGB:@"#008080"];
+}
+
 + (UIColor*)colorForHexRGB:(NSString*)rgbHexString withAlpha:(CGFloat)alpha
 {
     NSArray *rgb = nil;

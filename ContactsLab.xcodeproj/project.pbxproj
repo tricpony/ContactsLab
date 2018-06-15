@@ -34,8 +34,13 @@
 		D1F89D2620D2C15400FA2AA1 /* GBSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D2520D2C15400FA2AA1 /* GBSplitViewController.m */; };
 		D1F89D2820D2C18000FA2AA1 /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F89D2720D2C18000FA2AA1 /* Tabs.storyboard */; };
 		D1F89D2B20D3033B00FA2AA1 /* UIView+ContactsLab.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D2A20D3033B00FA2AA1 /* UIView+ContactsLab.m */; };
-		D1F89D3020D3302800FA2AA1 /* CustomAppearanceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D2C20D3302700FA2AA1 /* CustomAppearanceNavigationController.m */; };
-		D1F89D3120D3302800FA2AA1 /* SearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D2D20D3302700FA2AA1 /* SearchNavigationController.m */; };
+		D1F89D3720D3716400FA2AA1 /* CustomAppearanceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D3420D3716400FA2AA1 /* CustomAppearanceNavigationController.m */; };
+		D1F89D3820D3716400FA2AA1 /* SearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D3620D3716400FA2AA1 /* SearchNavigationController.m */; };
+		D1F89D3C20D414F100FA2AA1 /* CompanyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D3B20D414F100FA2AA1 /* CompanyDetailViewController.m */; };
+		D1F89D3E20D4151600FA2AA1 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F89D3D20D4151600FA2AA1 /* Detail.storyboard */; };
+		D1F89D4120D4195C00FA2AA1 /* DetailNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D4020D4195C00FA2AA1 /* DetailNavigationController.m */; };
+		D1F89D4620D4307B00FA2AA1 /* AddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D4420D4307B00FA2AA1 /* AddressTableCell.m */; };
+		D1F89D4720D4307B00FA2AA1 /* AddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F89D4520D4307B00FA2AA1 /* AddressTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,10 +94,18 @@
 		D1F89D2720D2C18000FA2AA1 /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
 		D1F89D2920D3033B00FA2AA1 /* UIView+ContactsLab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ContactsLab.h"; sourceTree = "<group>"; };
 		D1F89D2A20D3033B00FA2AA1 /* UIView+ContactsLab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ContactsLab.m"; sourceTree = "<group>"; };
-		D1F89D2C20D3302700FA2AA1 /* CustomAppearanceNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAppearanceNavigationController.m; sourceTree = "<group>"; };
-		D1F89D2D20D3302700FA2AA1 /* SearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNavigationController.m; sourceTree = "<group>"; };
-		D1F89D2E20D3302700FA2AA1 /* CustomAppearanceNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAppearanceNavigationController.h; sourceTree = "<group>"; };
-		D1F89D2F20D3302700FA2AA1 /* SearchNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavigationController.h; sourceTree = "<group>"; };
+		D1F89D3320D3716400FA2AA1 /* CustomAppearanceNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAppearanceNavigationController.h; sourceTree = "<group>"; };
+		D1F89D3420D3716400FA2AA1 /* CustomAppearanceNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAppearanceNavigationController.m; sourceTree = "<group>"; };
+		D1F89D3520D3716400FA2AA1 /* SearchNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavigationController.h; sourceTree = "<group>"; };
+		D1F89D3620D3716400FA2AA1 /* SearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNavigationController.m; sourceTree = "<group>"; };
+		D1F89D3A20D414F100FA2AA1 /* CompanyDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyDetailViewController.h; sourceTree = "<group>"; };
+		D1F89D3B20D414F100FA2AA1 /* CompanyDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailViewController.m; sourceTree = "<group>"; };
+		D1F89D3D20D4151600FA2AA1 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		D1F89D3F20D4195C00FA2AA1 /* DetailNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailNavigationController.h; sourceTree = "<group>"; };
+		D1F89D4020D4195C00FA2AA1 /* DetailNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailNavigationController.m; sourceTree = "<group>"; };
+		D1F89D4320D4307B00FA2AA1 /* AddressTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressTableCell.h; sourceTree = "<group>"; };
+		D1F89D4420D4307B00FA2AA1 /* AddressTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressTableCell.m; sourceTree = "<group>"; };
+		D1F89D4520D4307B00FA2AA1 /* AddressTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,10 +244,7 @@
 		D1F89CFA20D1FB2C00FA2AA1 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				D1F89D2E20D3302700FA2AA1 /* CustomAppearanceNavigationController.h */,
-				D1F89D2C20D3302700FA2AA1 /* CustomAppearanceNavigationController.m */,
-				D1F89D2F20D3302700FA2AA1 /* SearchNavigationController.h */,
-				D1F89D2D20D3302700FA2AA1 /* SearchNavigationController.m */,
+				D1F89D3220D3712D00FA2AA1 /* Style */,
 				D1F89D2320D2C13100FA2AA1 /* ViewControllers */,
 				D1F89D0620D2109700FA2AA1 /* Categories */,
 				D1F89CFB20D1FB2C00FA2AA1 /* Defines */,
@@ -268,8 +278,9 @@
 		D1F89D1020D2938800FA2AA1 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D1F89D1B20D2941900FA2AA1 /* Search.storyboard */,
 				D1F89D1420D293E200FA2AA1 /* SearchPanel */,
+				D1F89D3920D414B500FA2AA1 /* Detail */,
+				D1F89D1B20D2941900FA2AA1 /* Search.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -292,6 +303,40 @@
 				D1F89D2520D2C15400FA2AA1 /* GBSplitViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D1F89D3220D3712D00FA2AA1 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D1F89D3320D3716400FA2AA1 /* CustomAppearanceNavigationController.h */,
+				D1F89D3420D3716400FA2AA1 /* CustomAppearanceNavigationController.m */,
+				D1F89D3520D3716400FA2AA1 /* SearchNavigationController.h */,
+				D1F89D3620D3716400FA2AA1 /* SearchNavigationController.m */,
+				D1F89D3F20D4195C00FA2AA1 /* DetailNavigationController.h */,
+				D1F89D4020D4195C00FA2AA1 /* DetailNavigationController.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		D1F89D3920D414B500FA2AA1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D1F89D4220D4300A00FA2AA1 /* TableAssets */,
+				D1F89D3A20D414F100FA2AA1 /* CompanyDetailViewController.h */,
+				D1F89D3B20D414F100FA2AA1 /* CompanyDetailViewController.m */,
+				D1F89D3D20D4151600FA2AA1 /* Detail.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D1F89D4220D4300A00FA2AA1 /* TableAssets */ = {
+			isa = PBXGroup;
+			children = (
+				D1F89D4320D4307B00FA2AA1 /* AddressTableCell.h */,
+				D1F89D4420D4307B00FA2AA1 /* AddressTableCell.m */,
+				D1F89D4520D4307B00FA2AA1 /* AddressTableCell.xib */,
+			);
+			path = TableAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +400,9 @@
 				D1F89CA120D1E7A400FA2AA1 /* Assets.xcassets in Resources */,
 				D1F89D2820D2C18000FA2AA1 /* Tabs.storyboard in Resources */,
 				D1F89D1C20D2941900FA2AA1 /* Search.storyboard in Resources */,
+				D1F89D4720D4307B00FA2AA1 /* AddressTableCell.xib in Resources */,
 				D1F89C9C20D1E7A100FA2AA1 /* Main.storyboard in Resources */,
+				D1F89D3E20D4151600FA2AA1 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +415,8 @@
 			files = (
 				D1F89CF620D1EFC100FA2AA1 /* Person+CoreDataClass.m in Sources */,
 				D1F89CB020D1E8E500FA2AA1 /* AppDelegate.m in Sources */,
+				D1F89D4620D4307B00FA2AA1 /* AddressTableCell.m in Sources */,
+				D1F89D4120D4195C00FA2AA1 /* DetailNavigationController.m in Sources */,
 				D1F89D0920D210BE00FA2AA1 /* NSString+ContactsLab.m in Sources */,
 				D1F89CB620D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld in Sources */,
 				D1F89D1F20D29F6600FA2AA1 /* UIColor+ContactsLab.m in Sources */,
@@ -375,7 +424,8 @@
 				D1F89D0520D1FFBF00FA2AA1 /* ContactsLabService.m in Sources */,
 				D1F89CF520D1EFC100FA2AA1 /* Phone+CoreDataClass.m in Sources */,
 				D1F89D2220D2C0F800FA2AA1 /* GBTabBarController.m in Sources */,
-				D1F89D3120D3302800FA2AA1 /* SearchNavigationController.m in Sources */,
+				D1F89D3C20D414F100FA2AA1 /* CompanyDetailViewController.m in Sources */,
+				D1F89D3820D3716400FA2AA1 /* SearchNavigationController.m in Sources */,
 				D1F89D2B20D3033B00FA2AA1 /* UIView+ContactsLab.m in Sources */,
 				D1F89CE320D1EECE00FA2AA1 /* Phone+CoreDataProperties.m in Sources */,
 				D1F89D0220D1FDFE00FA2AA1 /* Constants.m in Sources */,
@@ -385,7 +435,7 @@
 				D1F89C9920D1E7A100FA2AA1 /* ViewController.m in Sources */,
 				D1F89D2620D2C15400FA2AA1 /* GBSplitViewController.m in Sources */,
 				D1F89CF320D1EFC100FA2AA1 /* Address+CoreDataClass.m in Sources */,
-				D1F89D3020D3302800FA2AA1 /* CustomAppearanceNavigationController.m in Sources */,
+				D1F89D3720D3716400FA2AA1 /* CustomAppearanceNavigationController.m in Sources */,
 				D1F89CE720D1EECE00FA2AA1 /* Company+CoreDataProperties.m in Sources */,
 				D1F89CE820D1EECE00FA2AA1 /* Person+CoreDataProperties.m in Sources */,
 				D1F89CA720D1E7A400FA2AA1 /* main.m in Sources */,

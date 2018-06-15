@@ -28,6 +28,25 @@ extern NSString *PERSON_NAME;
 extern NSString *PERSON_ADDRESSES;
 extern NSString *PERSON_PHONES;
 
+/*
+ parse keys
+ */
+#pragma mark ---- parse keys ----
+extern NSString *FIRST;
+extern NSString *LAST;
+
+/*
+ group type keys
+ */
+#pragma mark ---- group type keys ----
+extern NSString *GROUP_TYPE_KEY;
+extern NSString *GROUP_DATA_KEY;
+extern NSString *FRC;
+extern NSString *STREET_KEY;
+extern NSString *CITY_KEY;
+extern NSString *STATE_KEY;
+extern NSString *ZIP_KEY;
+
 @interface Constants : NSObject
 
 @end

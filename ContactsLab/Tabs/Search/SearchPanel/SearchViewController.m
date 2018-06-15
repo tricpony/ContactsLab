@@ -8,17 +8,23 @@
 
 #import "SearchViewController.h"
 #import "AutoCompleteSearchController.h"
+#import "CompanyDetailViewController.h"
 #import "CoreDataUtility.h"
 #import "Constants.h"
 
 #import "UIView+ContactsLab.h"
+#import "Company+CoreDataClass.h"
+#import "UIColor+ContactsLab.h"
+#import "Person+CoreDataClass.h"
 
 @interface SearchViewController () <UISearchResultsUpdating>
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSMutableArray *searchControllerSearchArgs;
+@property (strong, nonatomic) NSMutableArray *groupedSearchResults;
 @property (readonly, nonatomic) AutoCompleteSearchController *autoCompleteSearchController;
 @property (weak, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UIToolbar *keyboardToolbar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *searchBarCanvas;
 
 @end
@@ -47,7 +53,7 @@
 
 #pragma mark SearchBar Controller
 
-- (void)configureFRCWithSearchText:(NSString*)searchText
+- (void)configureFRCWithSearchText:(NSString*)searchTerm
 {
     NSError *error;
     BOOL success;
@@ -61,7 +67,7 @@
         NSFetchedResultsController *frc;
         
         self.searchControllerSearchArgs = [NSMutableArray arrayWithCapacity:2];
-        request = [[CoreDataUtility sharedInstance] fetchRequestForCompanyContainingSearchTerm:searchText withEditContext:ctx];
+        request = [[CoreDataUtility sharedInstance] fetchRequestForCompanyContainingSearchTerm:searchTerm withEditContext:ctx];
         frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                   managedObjectContext:ctx
                                                     sectionNameKeyPath:nil
@@ -76,7 +82,7 @@
             NSLog(@"fetched results count %lu",(unsigned long)[frc.fetchedObjects count]);
         }
         
-        request = [[CoreDataUtility sharedInstance] fetchRequestForPersonContainingSearchTerm:searchText withEditContext:ctx];
+        request = [[CoreDataUtility sharedInstance] fetchRequestForPersonContainingSearchTerm:searchTerm withEditContext:ctx];
         frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                   managedObjectContext:ctx
                                                     sectionNameKeyPath:nil
@@ -124,6 +130,7 @@
 {
     AutoCompleteSearchController *vc;
     
+    self.tableView.hidden = YES;
     vc = (id)[searchController searchResultsController];
     [self searchBarShouldBeginEditing:searchController.searchBar];
     [self configureFRCWithSearchText:searchController.searchBar.text];
@@ -280,6 +287,41 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
                      completion:nil];
 }
 
+#pragma mark Grouped Search
+
+- (void)performGroupedResultsSearchForSearchTerm:(NSManagedObject*)contact
+{
+    BOOL isPerson = [contact isKindOfClass:[Person class]];
+
+    self.groupedSearchResults = [NSMutableArray arrayWithCapacity:4];
+    if (isPerson) {
+        Person *person = (id)contact;
+        
+        if (person.company) {
+            [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_Person_Company),GROUP_DATA_KEY:@[person.company]}];
+        }
+        [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_Person),GROUP_DATA_KEY:@[person]}];
+        
+    }else{
+        Company *company = (id)contact;
+        
+        if (company.hasCorpOwners) {
+            [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_CorpOwner),GROUP_DATA_KEY:[company.corpOwners allObjects]}];
+        }
+        if (company.hasBrands) {
+            [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_Brand),GROUP_DATA_KEY:[company.brands allObjects]}];
+        }
+        if (company.hasManagers) {
+            [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_Manager),GROUP_DATA_KEY:[company.managers allObjects]}];
+        }
+    }
+    
+    self.tableView.hidden = [self.groupedSearchResults count] == 0;
+    if (!self.tableView.hidden) {
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark Table view methods
 
 - (NSString*)cellIdentifierAtIndexPath:(NSIndexPath*)indexPath
@@ -304,83 +346,135 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.searchControllerSearchArgs count];
+    return [self.groupedSearchResults count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows = 0;
-//    NSFetchedResultsController *frc = self.searchControllerSearchArgs[section][FRC];
-//
-//    numberOfRows = [[frc fetchedObjects] count];
+    NSArray *contacts = self.groupedSearchResults[section][GROUP_DATA_KEY];
+
+    numberOfRows = [contacts count];
     return numberOfRows;
+}
+
+- (void)tableView:(UITableView*)tableView willDisplayHeaderView:(UIView*)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor = [UIColor teal];
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+}
+
+- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30.0;
+}
+
+- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
+{
+    GroupedByType groupedByType = [self.groupedSearchResults[section][GROUP_TYPE_KEY] integerValue];
+    NSString *title = NSLocalizedString(@"Unknown", nil);
+    
+    switch (groupedByType) {
+        case GroupedBy_CorpOwner:
+            title = NSLocalizedString(@"Corporate Owners", nil);
+            break;
+            
+        case GroupedBy_Brand:
+            title = NSLocalizedString(@"Brands", nil);
+            break;
+            
+        case GroupedBy_Manager:
+            title = NSLocalizedString(@"Managers", nil);
+            break;
+            
+        case GroupedBy_Person:
+            title = NSLocalizedString(@"Contact", nil);
+            break;
+            
+        case GroupedBy_Person_Company:
+            title = NSLocalizedString(@"Manager At", nil);
+            break;
+            
+        default:
+            break;
+    }
+    
+    return title;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSFetchedResultsController *frc = self.searchControllerSearchArgs[indexPath.section][FRC];
-    UITableViewCell *cell = nil;//[self nextCellForTableView:tv atIndexPath:indexPath];
-//    NSString *titleText;
-//    NSRange r;
-//    Company *nextItem = nil;
-//
-//    nextItem = [frc fetchedObjects][indexPath.row];
-//    titleText = [nextItem valueForKey:@"searchTerm"];
-//
-//    r = [titleText rangeOfString:self.searchController.searchBar.text options:NSCaseInsensitiveSearch];
-//    cell.textLabel.attributedText = [titleText attributedStringHighlightingRange:r color:[UIColor yellowColor]];
-//    cell.accessoryType = UITableViewCellAccessoryNone;
-//
+    NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];
+    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
+
+    UITableViewCell *cell = [self nextCellForTableView:tv atIndexPath:indexPath];
+    NSString *titleText;
+    Company *nextItem = nil;
+
+    nextItem = contacts[indexPath.row];
+    titleText = nextItem.displayName;
+
+    cell.textLabel.text = titleText;
+    
+    switch (groupedByType) {
+        case GroupedBy_Person:
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            break;
+            
+        default:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+            break;
+    }
+
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    NSFetchedResultsController *frc = self.searchControllerSearchArgs[indexPath.section][FRC];
-    //    NSString *titleText;
-    //    CTSearchableStudyClass *nextItem = nil;
-    //    SearchViewController *vc;
-    //
-    //    vc = (id)self.searchController.searchResultsUpdater;
-    //    nextItem = [frc fetchedObjects][indexPath.row];
-    //
-    //    if (frc == vc.searchedBeforeFRC) {
-    //        NSManagedObjectContext *ctx = [APP_DELEGATE managedObjectContext];
-    //        NSMutableDictionary *searchArgs = nil;
-    //        NSMutableDictionary *reverseSearchArgs = nil;
-    //        ArchivedSearch *archiveSearch = [ctx objectWithID:[nextItem valueForKey:@"objectID"]];
-    //        __block NSMutableArray *searchRequestArgsForInsert = [NSMutableArray arrayWithCapacity:[searchArgs count]];
-    //
-    //        searchArgs = archiveSearch.argsFromSearchURL;
-    //        reverseSearchArgs = [NSMutableDictionary dictionaryWithCapacity:[searchArgs count]];
-    //        for (NSString *nextKey in [searchArgs allKeys]) {
-    //
-    //            reverseSearchArgs[nextKey] = [vc reverseValueForArg:searchArgs[nextKey]
-    //                                                      ofArgMask:nextKey
-    //                                                     completion:^(NSString *selectorString, NSInteger indexOfArg) {
-    //                                                         [searchRequestArgsForInsert addObject:@{@"queryBuildingSelector":selectorString,@"index":@(indexOfArg)}];
-    //                                                     }];
-    //
-    //        }
-    //        [vc highlightGridCellsMatchingSearchArgs:reverseSearchArgs];
-    //
-    //        //now insert the search request args and the service call is ready to fire
-    //        for (NSDictionary *nextInfo in searchRequestArgsForInsert) {
-    //            SEL selector;
-    //
-    //            selector = NSSelectorFromString(nextInfo[@"queryBuildingSelector"]);
-    //            [vc performInvocationWithSelector:selector object:nextInfo[@"index"]];
-    //        }
-    //
-    //        titleText = [nextItem valueForKey:@"searchTerm"];
-    //
-    //    }else{
-    //        titleText = [nextItem displayKey];
-    //    }
-    //
-    //    [self.searchController setActive:NO];
-    //    self.searchController.searchBar.text = titleText;
+    NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];
+    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
+    Company *nextItem = nil;
     
+    nextItem = contacts[indexPath.row];
+    [tv deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (groupedByType) {
+        case GroupedBy_CorpOwner:
+        case GroupedBy_Brand:
+        case GroupedBy_Manager:
+        case GroupedBy_Person_Company:
+
+            [self performSegueWithIdentifier:@"detailSegue" sender:nextItem];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"detailSegue"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        CompanyDetailViewController *vc = (id)navVC.topViewController;
+        Company *nextItem = sender;
+
+        self.navigationItem.title = @" ";
+        vc.company = nextItem;
+        vc.title = @"Company Details";
+        
+        if ([nextItem.brands count]) {
+            vc.companyTitle = @"Corporate Owner";
+        }else{
+            vc.companyTitle = @"Brand";
+        }
+    }
 }
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import "CoreDataUtility.h"
+#import "Constants.h"
+
 #import "Address+CoreDataClass.h"
 #import "Company+CoreDataClass.h"
 #import "Person+CoreDataClass.h"
 #import "Phone+CoreDataClass.h"
+#import "NSString+ContactsLab.h"
 
 static CoreDataUtility *sharedInstance = nil;
 

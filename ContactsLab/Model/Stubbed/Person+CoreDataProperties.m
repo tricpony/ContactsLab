@@ -20,5 +20,6 @@
 @dynamic lastname;
 @dynamic addresses;
 @dynamic phones;
+@dynamic company;
 
 @end

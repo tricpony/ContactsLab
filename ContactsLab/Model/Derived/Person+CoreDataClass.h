@@ -10,12 +10,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Address, Phone;
+@class Address, Phone, Company;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSManagedObject
 @property (readonly, nonatomic) NSString *fullname;
+@property (readonly, nonatomic) NSString *displayName;
 
 + (Person*)createPersonNamed:(NSString*)name withContext:(NSManagedObjectContext*)ctx;
 - (void)fillAddressesFrom:(NSArray*)addressStrings context:(NSManagedObjectContext*)ctx;

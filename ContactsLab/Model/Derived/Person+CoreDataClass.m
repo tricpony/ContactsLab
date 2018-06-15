@@ -9,12 +9,12 @@
 
 #import "Person+CoreDataClass.h"
 #import "CoreDataUtility.h"
+#import "Constants.h"
 
+#import "Company+CoreDataClass.h"
 #import "Address+CoreDataClass.h"
 #import "Phone+CoreDataClass.h"
-
-#define FIRST @"first"
-#define LAST @"last"
+#import "NSString+ContactsLab.h"
 
 @implementation Person
 
@@ -25,32 +25,7 @@
  **/
 + (NSDictionary*)parseFirstAndLastOfName:(NSString*)name
 {
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\b[a-z]+\\b"
-                                                                           options:NSRegularExpressionCaseInsensitive
-                                                                             error:NULL];
-
-    NSMutableDictionary *parsedName = nil;
-    NSInteger i = 0;
-    NSArray *matches = [regex matchesInString:name
-                                      options:0
-                                        range:NSMakeRange(0, [name length])];
-    for (NSTextCheckingResult *match in matches) {
-        NSRange r = [match rangeAtIndex:0];
-        NSString *key = FIRST;
-        NSString *nameSeg = nil;
-        
-        if (!parsedName) {
-            parsedName = [NSMutableDictionary dictionaryWithCapacity:2];
-        }
-        if (i == 1) {
-            key = LAST;
-        }
-        
-        nameSeg = [name substringWithRange:r];
-        parsedName[key] = nameSeg;
-        ++i;
-    }
-    return parsedName;
+    return [name parseFirstAndLastName];
 }
 
 + (Person*)createPersonNamed:(NSString*)name withContext:(NSManagedObjectContext*)ctx

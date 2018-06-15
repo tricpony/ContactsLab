@@ -11,6 +11,7 @@
 @interface UIColor (ContactsLab)
 
 + (UIColor*)GBBlue;
++ (UIColor*)teal;
 + (UIColor*)colorForHexRGB:(NSString*)rgbHexString withAlpha:(CGFloat)alpha;
 + (UIColor*)colorForHexRGB:(NSString*)rgbHexString;
 

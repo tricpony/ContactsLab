@@ -92,6 +92,35 @@
     }
 }
 
+- (NSArray*)addressesAsDictionaries
+{
+    NSArray *addressInfo = @[];
+    
+    if (self.hasAddresses) {
+        NSMutableArray *m_addressInfo = [NSMutableArray arrayWithCapacity:[self.addresses count]];
+        for (Address *nextAddress in self.addresses) {
+            NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:4];
+            
+            if (nextAddress.street) {
+                info[STREET_KEY] = nextAddress.street;
+            }
+            if (nextAddress.city) {
+                info[CITY_KEY] = nextAddress.city;
+            }
+            if (nextAddress.state) {
+                info[STATE_KEY] = nextAddress.state;
+            }
+            if (nextAddress.zip) {
+                info[ZIP_KEY] = nextAddress.zip;
+            }
+            [m_addressInfo addObject:info];
+        }
+        addressInfo = (id)m_addressInfo;
+    }
+    
+    return addressInfo;
+}
+
 - (NSString*)searchTerm
 {
     return self.name;
@@ -100,6 +129,31 @@
 - (NSString*)displayName
 {
     return self.name;
+}
+
+- (BOOL)hasCorpOwners
+{
+    return [self.corpOwners count];
+}
+
+- (BOOL)hasBrands
+{
+    return [self.brands count];
+}
+
+- (BOOL)hasManagers
+{
+    return [self.managers count];
+}
+
+- (BOOL)hasAddresses
+{
+    return [self.addresses count];
+}
+
+- (BOOL)hasPhones
+{
+    return [self.phones count];
 }
 
 - (void)awakeFromInsert

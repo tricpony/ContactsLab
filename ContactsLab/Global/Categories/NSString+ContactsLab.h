@@ -13,5 +13,6 @@
 - (NSMutableArray*)hexAsRGB;
 - (NSString*)trim;
 - (NSAttributedString*)attributedStringHighlightingRange:(NSRange)range color:(UIColor*)highLightColor;
+- (NSDictionary*)parseFirstAndLastName;
 
 @end
