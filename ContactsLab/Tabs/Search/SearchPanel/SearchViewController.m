@@ -146,17 +146,16 @@
 
 #pragma mark UISearchController Helper
 
-//- (void)viewDidLayoutSubviews
-//{
-//    CGFloat w;
-//    CGRect frame;
-//    CGRect searchBarFrame = self.searchController.searchBar.frame;
-//    
-//    w = self.view.frame.size.width;
-//    frame = CGRectMake(searchBarFrame.origin.x, searchBarFrame.origin.y, w, searchBarFrame.size.height + 22);
-//    frame = CGRectMake(searchBarFrame.origin.x, searchBarFrame.origin.y, w, searchBarFrame.size.height);
-//    self.searchController.searchBar.frame = frame;
-//}
+- (void)viewDidLayoutSubviews
+{
+    CGFloat w;
+    CGRect frame;
+    CGRect searchBarFrame = self.searchController.searchBar.frame;
+    
+    w = self.view.frame.size.width;
+    frame = CGRectMake(searchBarFrame.origin.x, searchBarFrame.origin.y, w, searchBarFrame.size.height);
+    self.searchController.searchBar.frame = frame;
+}
 
 - (BOOL)searchBarIsEmpty
 {
