@@ -440,16 +440,25 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];
     GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
     Company *nextItem = nil;
-    
+    BOOL isPerson = NO;
+    Person *person = (id)nextItem;
+
     nextItem = contacts[indexPath.row];
+    isPerson = [nextItem isKindOfClass:[Person class]];
     [tv deselectRowAtIndexPath:indexPath animated:YES];
     
     switch (groupedByType) {
         case GroupedBy_CorpOwner:
         case GroupedBy_Brand:
-        case GroupedBy_Manager:
         case GroupedBy_Person_Company:
 
+            [self performSegueWithIdentifier:@"detailSegue" sender:nextItem];
+            break;
+           
+        case GroupedBy_Manager:
+            
+            person = (id)nextItem;
+            nextItem = person.company;
             [self performSegueWithIdentifier:@"detailSegue" sender:nextItem];
             break;
             
@@ -463,13 +472,13 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         UINavigationController *navVC = segue.destinationViewController;
         CompanyDetailViewController *vc = (id)navVC.topViewController;
-        Company *nextItem = sender;
+        Company *company = sender;
 
         self.navigationItem.title = @" ";
-        vc.company = nextItem;
-        vc.title = @"Company Details";
+        vc.company = company;
+        vc.title = [NSString stringWithFormat:@"%@ Details",company.name];
         
-        if ([nextItem.brands count]) {
+        if ([company.brands count]) {
             vc.companyTitle = @"Corporate Owner";
         }else{
             vc.companyTitle = @"Brand";

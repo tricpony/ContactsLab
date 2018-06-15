@@ -21,40 +21,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="l" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sah-2n-1GP">
-                        <rect key="frame" x="12" y="3" width="187.5" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="12" y="3" width="262.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="l" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfG-hp-boH">
-                        <rect key="frame" x="12" y="30.5" width="187.5" height="21.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="12" y="25" width="187.5" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thi-xS-cTi">
-                        <rect key="frame" x="320" y="3" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="326.5" y="3" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY9-Iq-l31">
-                        <rect key="frame" x="174.5" y="30" width="187.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="174.5" y="24.5" width="187.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Thi-xS-cTi" secondAttribute="trailing" constant="13" id="0oQ-CY-MvF"/>
-                    <constraint firstItem="MfG-hp-boH" firstAttribute="top" secondItem="Sah-2n-1GP" secondAttribute="bottom" constant="7" id="9hW-FM-WiU"/>
+                    <constraint firstItem="MfG-hp-boH" firstAttribute="top" secondItem="Sah-2n-1GP" secondAttribute="bottom" constant="5" id="9hW-FM-WiU"/>
                     <constraint firstItem="MfG-hp-boH" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="MmV-ov-p0D"/>
                     <constraint firstItem="Thi-xS-cTi" firstAttribute="top" secondItem="Sah-2n-1GP" secondAttribute="top" id="NaX-kw-2RZ"/>
-                    <constraint firstAttribute="bottom" secondItem="MfG-hp-boH" secondAttribute="bottom" constant="2.5" id="NdJ-tt-V2d"/>
+                    <constraint firstAttribute="bottom" secondItem="MfG-hp-boH" secondAttribute="bottom" constant="4" id="NdJ-tt-V2d"/>
                     <constraint firstItem="Sah-2n-1GP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="OxW-Eq-MFK"/>
                     <constraint firstItem="xY9-Iq-l31" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="POp-DG-ZkX"/>
                     <constraint firstItem="Sah-2n-1GP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="WM7-ok-j3L"/>
-                    <constraint firstItem="Sah-2n-1GP" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="cLo-8y-Fzr"/>
+                    <constraint firstItem="Sah-2n-1GP" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="cLo-8y-Fzr"/>
                     <constraint firstItem="xY9-Iq-l31" firstAttribute="top" secondItem="MfG-hp-boH" secondAttribute="top" id="q0N-qS-Oea"/>
                     <constraint firstAttribute="trailing" secondItem="xY9-Iq-l31" secondAttribute="trailing" constant="13" id="sd2-WB-tBL"/>
                     <constraint firstItem="MfG-hp-boH" firstAttribute="leading" secondItem="Sah-2n-1GP" secondAttribute="leading" id="zji-ho-P1Q"/>

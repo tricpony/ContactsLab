@@ -163,9 +163,7 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];
-//    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
-    
+    NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];    
     UITableViewCell *cell = [self nextCellForTableView:tv atIndexPath:indexPath];
     Address *nextItem = nil;
     
@@ -174,6 +172,7 @@
     if (indexPath.section == 0) {
         AddressTableCell *addressCell = (id)cell;
         
+        [addressCell clear];
         [addressCell fillCellWithInfo:nextItem.addressAsDictionary];
         
     }else{

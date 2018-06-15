@@ -27,7 +27,7 @@ NSString *ADDRESS_CELL_ID = @"ADDRESS_CELL_ID";
 {
     self.streetLabel.text = addressInfo[STREET_KEY];
     self.cityLabel.text = addressInfo[CITY_KEY];
-    self.streetLabel.text = addressInfo[STATE_KEY];
+    self.stateLabel.text = addressInfo[STATE_KEY];
     self.zipLabel.text = addressInfo[ZIP_KEY];
     
 }
@@ -36,7 +36,7 @@ NSString *ADDRESS_CELL_ID = @"ADDRESS_CELL_ID";
 {
     self.streetLabel.text = @"";
     self.cityLabel.text = @"";
-    self.streetLabel.text = @"";
+    self.stateLabel.text = @"";
     self.zipLabel.text = @"";
     
 }
