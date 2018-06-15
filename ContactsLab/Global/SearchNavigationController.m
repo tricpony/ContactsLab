@@ -18,13 +18,8 @@
 - (NSString*)navBarHexRGBColor
 {
     //http://www.blooberry.com/indexdot/color/x11makerFrameNS.htm
-    //Khaki
-    return @"#F0E68C";
-}
-
-- (UIColor*)navBarColor
-{
-    return [UIColor blackColor];
+    //Teal
+    return @"#008080";
 }
 
 @end

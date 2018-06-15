@@ -35,7 +35,7 @@ NSString *TAB_ITEM_IMAGE_KEY = @"TAB_ITEM_IMAGE_KEY";
 + (NSArray*)storyBoardNames
 {
     return @[
-             @{NAV_BAR_TITLE_KEY:@"Search",
+             @{NAV_BAR_TITLE_KEY:@"Search Contacts",
                TAB_ITEM_IMAGE_KEY:@"icon_search.png",
                TAB_BAR_TITLE_KEY:localizationForString(@"Search")
                }

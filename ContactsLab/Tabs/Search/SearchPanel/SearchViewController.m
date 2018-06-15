@@ -30,11 +30,6 @@
     [super viewDidLoad];
     [self setupSearchController];
     
-    
-//    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]] setBarTintColor:[UIColor blackColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         //alert me when the keyboard is about to display
         [[NSNotificationCenter defaultCenter] addObserver: self
@@ -110,7 +105,6 @@
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:autoCompleteVC];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = YES;
-//    self.searchController.searchBar.barTintColor = self.navigationController.navigationBar.backgroundColor;
     self.searchController.searchBar.barTintColor = [UIColor blackColor];
     self.definesPresentationContext = YES;
     autoCompleteVC.searchControllerSearchArgs = self.searchControllerSearchArgs;
@@ -120,7 +114,8 @@
     
     //insert the search bar
     [self.searchBarCanvas addSubview:self.searchController.searchBar];
-//    [self.searchBarCanvas pinnView:self.searchController.searchBar toEdgeOffsets:EdgeOffsetMake(0, 0, 0, 0)];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 #pragma mark UISearchResultsUpdating
