@@ -91,6 +91,16 @@
     return self.fullname;
 }
 
+- (BOOL)hasAddresses
+{
+    return [self.addresses count];
+}
+
+- (BOOL)hasPhones
+{
+    return [self.phones count];
+}
+
 - (void)awakeFromInsert
 {
     [super awakeFromInsert];

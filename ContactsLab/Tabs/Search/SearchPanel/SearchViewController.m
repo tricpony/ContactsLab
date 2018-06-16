@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "AutoCompleteSearchController.h"
 #import "CompanyDetailViewController.h"
+#import "PersonDetailViewController.h"
 #import "CoreDataUtility.h"
 #import "Constants.h"
 
@@ -417,7 +418,6 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 - (UITableViewCell*)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];
-    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
 
     UITableViewCell *cell = [self nextCellForTableView:tv atIndexPath:indexPath];
     NSString *titleText;
@@ -427,18 +427,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     titleText = nextItem.displayName;
 
     cell.textLabel.text = titleText;
-    
-    switch (groupedByType) {
-        case GroupedBy_Person:
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            break;
-            
-        default:
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
-            break;
-    }
-
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
 }
@@ -449,7 +438,6 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
     GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
     Company *nextItem = nil;
     BOOL isPerson = NO;
-    Person *person = (id)nextItem;
 
     nextItem = contacts[indexPath.row];
     isPerson = [nextItem isKindOfClass:[Person class]];
@@ -460,16 +448,19 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
         case GroupedBy_Brand:
         case GroupedBy_Person_Company:
 
-            [self performSegueWithIdentifier:@"detailSegue" sender:nextItem];
+            [self performSegueWithIdentifier:@"detailCompanySegue" sender:nextItem];
             break;
            
         case GroupedBy_Manager:
             
-            person = (id)nextItem;
-            nextItem = person.company;
-            [self performSegueWithIdentifier:@"detailSegue" sender:nextItem];
+            [self performSegueWithIdentifier:@"detailPersonSegue" sender:nextItem];
             break;
             
+        case GroupedBy_Person:
+            
+            [self performSegueWithIdentifier:@"detailPersonSegue" sender:nextItem];
+            break;
+
         default:
             break;
     }
@@ -477,7 +468,7 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"detailSegue"]) {
+    if ([segue.identifier isEqualToString:@"detailCompanySegue"]) {
         UINavigationController *navVC = segue.destinationViewController;
         CompanyDetailViewController *vc = (id)navVC.topViewController;
         Company *company = sender;
@@ -491,6 +482,14 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
         }else{
             vc.companyTitle = @"Brand";
         }
+    }else if ([segue.identifier isEqualToString:@"detailPersonSegue"]) {
+        UINavigationController *navVC = segue.destinationViewController;
+        PersonDetailViewController *vc = (id)navVC.topViewController;
+        Person *person = sender;
+
+        self.navigationItem.title = @" ";
+        vc.person = person;
+        vc.title = [NSString stringWithFormat:@"%@ Details",person.fullname];
     }
 }
 

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +56,8 @@
                     <connections>
                         <outlet property="searchBarCanvas" destination="Cei-jd-pym" id="y0V-fT-Pqr"/>
                         <outlet property="tableView" destination="rAS-R6-yLN" id="syv-PH-vAJ"/>
-                        <segue destination="FUn-iC-78b" kind="showDetail" identifier="detailSegue" id="xCR-71-qFT"/>
+                        <segue destination="FUn-iC-78b" kind="showDetail" identifier="detailCompanySegue" id="xCR-71-qFT"/>
+                        <segue destination="C3s-Ta-bwn" kind="showDetail" identifier="detailPersonSegue" id="9NI-1D-wUN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kR0-d1-Ruf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -70,7 +70,15 @@
                 <viewControllerPlaceholder storyboardName="Detail" id="FUn-iC-78b" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VJ-zs-8u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1183" y="551"/>
+            <point key="canvasLocation" x="-1458" y="621"/>
+        </scene>
+        <!--detailPersonNavStackScene-->
+        <scene sceneID="naO-eF-jL6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" referencedIdentifier="detailPersonNavStackScene" id="C3s-Ta-bwn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fKB-mg-JlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-863" y="621"/>
         </scene>
         <!--Auto Complete Search Controller-->
         <scene sceneID="0EV-Ns-z3f">
