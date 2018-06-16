@@ -42,6 +42,7 @@
     [self assembleDataSource];
     [self loadTableFooter];
     self.detailTitle.text = self.companyTitle;
+    self.canvas.hidden = self.company == nil;
 }
 
 - (void)loadTableFooter

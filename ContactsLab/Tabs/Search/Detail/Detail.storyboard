@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matte_background" translatesAutoresizingMaskIntoConstraints="NO" id="4f3-bE-sBG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5N-w0-6lW" userLabel="Canvas">
-                                <rect key="frame" x="22.5" y="48.5" width="330" height="534"/>
+                                <rect key="frame" x="22.5" y="44" width="330" height="579"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3J2-uj-6Jz">
                                         <rect key="frame" x="11" y="12" width="308" height="69"/>
@@ -44,10 +40,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYA-pE-mfm">
-                                        <rect key="frame" x="11" y="89" width="308" height="433"/>
+                                        <rect key="frame" x="11" y="89" width="308" height="478"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="727-nQ-sJK">
-                                                <rect key="frame" x="3" y="3" width="302" height="427"/>
+                                                <rect key="frame" x="3" y="3" width="302" height="472"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
@@ -65,7 +61,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.64734053938356162" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TYA-pE-mfm" firstAttribute="leading" secondItem="3J2-uj-6Jz" secondAttribute="leading" id="9Tu-w2-pCm"/>
                                     <constraint firstAttribute="trailing" secondItem="3J2-uj-6Jz" secondAttribute="trailing" constant="11" id="CAP-cj-hzW"/>
@@ -78,18 +74,22 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="U5N-w0-6lW" firstAttribute="height" secondItem="zAh-fQ-5Zr" secondAttribute="height" multiplier="0.8" id="24q-Pg-khU"/>
-                            <constraint firstItem="IA6-y1-en8" firstAttribute="trailing" secondItem="4f3-bE-sBG" secondAttribute="trailing" id="8HC-fx-dSX"/>
-                            <constraint firstItem="U5N-w0-6lW" firstAttribute="centerX" secondItem="zAh-fQ-5Zr" secondAttribute="centerX" id="AUC-k9-BAh"/>
-                            <constraint firstItem="IA6-y1-en8" firstAttribute="bottom" secondItem="4f3-bE-sBG" secondAttribute="bottom" id="FLq-aG-GBl"/>
-                            <constraint firstItem="4f3-bE-sBG" firstAttribute="leading" secondItem="IA6-y1-en8" secondAttribute="leading" id="KPc-G5-djb"/>
-                            <constraint firstItem="U5N-w0-6lW" firstAttribute="width" secondItem="zAh-fQ-5Zr" secondAttribute="width" multiplier="0.88" id="Vej-Gq-fpc"/>
-                            <constraint firstItem="4f3-bE-sBG" firstAttribute="top" secondItem="IA6-y1-en8" secondAttribute="top" id="mDe-VB-fXZ"/>
-                            <constraint firstItem="U5N-w0-6lW" firstAttribute="centerY" secondItem="zAh-fQ-5Zr" secondAttribute="centerY" constant="-18" id="yys-s9-kVD"/>
+                            <constraint firstItem="IA6-y1-en8" firstAttribute="bottom" secondItem="U5N-w0-6lW" secondAttribute="bottom" constant="44" id="Cq4-kE-xEU"/>
+                            <constraint firstItem="U5N-w0-6lW" firstAttribute="top" secondItem="zAh-fQ-5Zr" secondAttribute="top" constant="44" id="K9u-hm-6IT">
+                                <variation key="heightClass=compact-widthClass=regular" constant="77"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="96"/>
+                            </constraint>
+                            <constraint firstItem="IA6-y1-en8" firstAttribute="trailing" secondItem="U5N-w0-6lW" secondAttribute="trailing" constant="22.5" id="VKb-v3-jEP"/>
+                            <constraint firstItem="U5N-w0-6lW" firstAttribute="leading" secondItem="IA6-y1-en8" secondAttribute="leading" constant="22.5" id="pRS-7T-tnE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IA6-y1-en8"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="K9u-hm-6IT"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dxB-lQ-Emu"/>
                     <connections>
@@ -124,7 +124,4 @@
             <point key="canvasLocation" x="-82.400000000000006" y="181.25937031484258"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="matte_background" width="640" height="960"/>
-    </resources>
 </document>
