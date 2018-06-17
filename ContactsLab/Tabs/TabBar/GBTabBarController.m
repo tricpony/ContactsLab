@@ -38,6 +38,10 @@ NSString *TAB_ITEM_IMAGE_KEY = @"TAB_ITEM_IMAGE_KEY";
              @{NAV_BAR_TITLE_KEY:@"Search Contacts",
                TAB_ITEM_IMAGE_KEY:@"icon_search.png",
                TAB_BAR_TITLE_KEY:localizationForString(@"Search")
+               },
+             @{NAV_BAR_TITLE_KEY:@"Brands",
+               TAB_ITEM_IMAGE_KEY:@"support_blue.png",
+               TAB_BAR_TITLE_KEY:localizationForString(@"Brands")
                }
              ];
 }
@@ -58,7 +62,9 @@ NSString *TAB_ITEM_IMAGE_KEY = @"TAB_ITEM_IMAGE_KEY";
         NSString *navTitle = infoNode[NAV_BAR_TITLE_KEY];
         NSString *tabTitle = infoNode[TAB_BAR_TITLE_KEY];
 
-        navVC.tabBarItem.image = [UIImage imageNamed:tabImageName];
+        if (tabImageName) {
+            navVC.tabBarItem.image = [UIImage imageNamed:tabImageName];
+        }
         vc.title = navTitle;
         navVC.navigationItem.title = navTitle;
         navVC.tabBarItem.title = tabTitle;

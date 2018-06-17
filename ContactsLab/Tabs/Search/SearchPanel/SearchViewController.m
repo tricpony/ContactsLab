@@ -37,6 +37,10 @@
     [super viewDidLoad];
     [self setupSearchController];
     
+    //enable auto cell height that uses constraints
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 55;
+
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         //alert me when the keyboard is about to display
         [[NSNotificationCenter defaultCenter] addObserver: self
@@ -127,8 +131,6 @@
     
     //insert the search bar
     [self.searchBarCanvas addSubview:self.searchController.searchBar];
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
 #pragma mark UISearchResultsUpdating

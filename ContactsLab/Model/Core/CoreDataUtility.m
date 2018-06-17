@@ -71,6 +71,19 @@ static CoreDataUtility *sharedInstance = nil;
     return request;
 }
 
+- (NSFetchRequest*)fetchRequestForBrandsWithEditContext:(NSManagedObjectContext*)ctx
+{
+    NSPredicate *q;
+    NSFetchRequest *request;
+    NSSortDescriptor *descriptor;
+    
+    descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    q = [NSPredicate predicateWithFormat:@"corpOwners.@count == 1"];
+    request = [self fetchRequestForEntityNamed:@"Company" withEditContext:ctx predicate:q sortDescriptors:@[descriptor]];
+    
+    return request;
+}
+
 #pragma mark
 #pragma mark ---- Fetching EOS ----
 

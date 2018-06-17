@@ -43,6 +43,10 @@
     [self assembleDataSource];
     [self loadTableFooter];
     self.detailTitle.text = self.person.fullname;
+    
+    //enable auto cell height that uses constraints
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 55;
 }
 
 - (void)loadTableFooter

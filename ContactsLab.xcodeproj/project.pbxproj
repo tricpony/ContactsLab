@@ -37,11 +37,13 @@
 		D1F89D3720D3716400FA2AA1 /* CustomAppearanceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D3420D3716400FA2AA1 /* CustomAppearanceNavigationController.m */; };
 		D1F89D3820D3716400FA2AA1 /* SearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D3620D3716400FA2AA1 /* SearchNavigationController.m */; };
 		D1F89D3E20D4151600FA2AA1 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F89D3D20D4151600FA2AA1 /* Detail.storyboard */; };
-		D1F89D4120D4195C00FA2AA1 /* DetailNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D4020D4195C00FA2AA1 /* DetailNavigationController.m */; };
 		D1F89D5020D5239B00FA2AA1 /* CompanyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D4A20D5239B00FA2AA1 /* CompanyDetailViewController.m */; };
 		D1F89D5520D523C800FA2AA1 /* PersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D5420D523C800FA2AA1 /* PersonDetailViewController.m */; };
 		D1F89D5A20D532D200FA2AA1 /* AddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D5720D532D200FA2AA1 /* AddressTableCell.m */; };
 		D1F89D5B20D532D200FA2AA1 /* AddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F89D5920D532D200FA2AA1 /* AddressTableCell.xib */; };
+		D1F89D5F20D53FCC00FA2AA1 /* BrandsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D5E20D53FCC00FA2AA1 /* BrandsViewController.m */; };
+		D1F89D6120D53FEC00FA2AA1 /* Brands.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F89D6020D53FEC00FA2AA1 /* Brands.storyboard */; };
+		D1F89D6420D5772100FA2AA1 /* BrandNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89D6320D5772100FA2AA1 /* BrandNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,8 +102,6 @@
 		D1F89D3520D3716400FA2AA1 /* SearchNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchNavigationController.h; sourceTree = "<group>"; };
 		D1F89D3620D3716400FA2AA1 /* SearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchNavigationController.m; sourceTree = "<group>"; };
 		D1F89D3D20D4151600FA2AA1 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		D1F89D3F20D4195C00FA2AA1 /* DetailNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailNavigationController.h; sourceTree = "<group>"; };
-		D1F89D4020D4195C00FA2AA1 /* DetailNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailNavigationController.m; sourceTree = "<group>"; };
 		D1F89D4920D5239B00FA2AA1 /* CompanyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyDetailViewController.h; sourceTree = "<group>"; };
 		D1F89D4A20D5239B00FA2AA1 /* CompanyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyDetailViewController.m; sourceTree = "<group>"; };
 		D1F89D5320D523C800FA2AA1 /* PersonDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonDetailViewController.h; sourceTree = "<group>"; };
@@ -109,6 +109,11 @@
 		D1F89D5720D532D200FA2AA1 /* AddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableCell.m; sourceTree = "<group>"; };
 		D1F89D5820D532D200FA2AA1 /* AddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableCell.h; sourceTree = "<group>"; };
 		D1F89D5920D532D200FA2AA1 /* AddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableCell.xib; sourceTree = "<group>"; };
+		D1F89D5D20D53FCC00FA2AA1 /* BrandsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrandsViewController.h; sourceTree = "<group>"; };
+		D1F89D5E20D53FCC00FA2AA1 /* BrandsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrandsViewController.m; sourceTree = "<group>"; };
+		D1F89D6020D53FEC00FA2AA1 /* Brands.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Brands.storyboard; sourceTree = "<group>"; };
+		D1F89D6220D5772100FA2AA1 /* BrandNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrandNavigationController.h; sourceTree = "<group>"; };
+		D1F89D6320D5772100FA2AA1 /* BrandNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrandNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				D1F89CB520D1E8F500FA2AA1 /* TabBar */,
+				D1F89D5C20D53FAF00FA2AA1 /* Brands */,
 				D1F89D1020D2938800FA2AA1 /* Search */,
 			);
 			path = Tabs;
@@ -315,8 +321,8 @@
 				D1F89D3420D3716400FA2AA1 /* CustomAppearanceNavigationController.m */,
 				D1F89D3520D3716400FA2AA1 /* SearchNavigationController.h */,
 				D1F89D3620D3716400FA2AA1 /* SearchNavigationController.m */,
-				D1F89D3F20D4195C00FA2AA1 /* DetailNavigationController.h */,
-				D1F89D4020D4195C00FA2AA1 /* DetailNavigationController.m */,
+				D1F89D6220D5772100FA2AA1 /* BrandNavigationController.h */,
+				D1F89D6320D5772100FA2AA1 /* BrandNavigationController.m */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -358,6 +364,16 @@
 				D1F89D5920D532D200FA2AA1 /* AddressTableCell.xib */,
 			);
 			path = TableAssets;
+			sourceTree = "<group>";
+		};
+		D1F89D5C20D53FAF00FA2AA1 /* Brands */ = {
+			isa = PBXGroup;
+			children = (
+				D1F89D5D20D53FCC00FA2AA1 /* BrandsViewController.h */,
+				D1F89D5E20D53FCC00FA2AA1 /* BrandsViewController.m */,
+				D1F89D6020D53FEC00FA2AA1 /* Brands.storyboard */,
+			);
+			path = Brands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +435,7 @@
 			files = (
 				D1F89CA420D1E7A400FA2AA1 /* LaunchScreen.storyboard in Resources */,
 				D1F89CA120D1E7A400FA2AA1 /* Assets.xcassets in Resources */,
+				D1F89D6120D53FEC00FA2AA1 /* Brands.storyboard in Resources */,
 				D1F89D2820D2C18000FA2AA1 /* Tabs.storyboard in Resources */,
 				D1F89D1C20D2941900FA2AA1 /* Search.storyboard in Resources */,
 				D1F89D5B20D532D200FA2AA1 /* AddressTableCell.xib in Resources */,
@@ -436,15 +453,16 @@
 			files = (
 				D1F89CF620D1EFC100FA2AA1 /* Person+CoreDataClass.m in Sources */,
 				D1F89CB020D1E8E500FA2AA1 /* AppDelegate.m in Sources */,
-				D1F89D4120D4195C00FA2AA1 /* DetailNavigationController.m in Sources */,
 				D1F89D0920D210BE00FA2AA1 /* NSString+ContactsLab.m in Sources */,
 				D1F89CB620D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld in Sources */,
+				D1F89D6420D5772100FA2AA1 /* BrandNavigationController.m in Sources */,
 				D1F89D1F20D29F6600FA2AA1 /* UIColor+ContactsLab.m in Sources */,
 				D1F89D1A20D2940B00FA2AA1 /* SearchViewController.m in Sources */,
 				D1F89D0520D1FFBF00FA2AA1 /* ContactsLabService.m in Sources */,
 				D1F89CF520D1EFC100FA2AA1 /* Phone+CoreDataClass.m in Sources */,
 				D1F89D2220D2C0F800FA2AA1 /* GBTabBarController.m in Sources */,
 				D1F89D3820D3716400FA2AA1 /* SearchNavigationController.m in Sources */,
+				D1F89D5F20D53FCC00FA2AA1 /* BrandsViewController.m in Sources */,
 				D1F89D2B20D3033B00FA2AA1 /* UIView+ContactsLab.m in Sources */,
 				D1F89CE320D1EECE00FA2AA1 /* Phone+CoreDataProperties.m in Sources */,
 				D1F89D0220D1FDFE00FA2AA1 /* Constants.m in Sources */,

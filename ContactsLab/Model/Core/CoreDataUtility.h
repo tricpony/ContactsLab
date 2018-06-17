@@ -22,6 +22,7 @@
  **/
 - (NSFetchRequest*)fetchRequestForCompanyContainingSearchTerm:(NSString*)searchTerm withEditContext:(NSManagedObjectContext*)ctx;
 - (NSFetchRequest*)fetchRequestForPersonContainingSearchTerm:(NSString*)searchTerm withEditContext:(NSManagedObjectContext*)ctx;
+- (NSFetchRequest*)fetchRequestForBrandsWithEditContext:(NSManagedObjectContext*)ctx;
 
 /**
  Fetching

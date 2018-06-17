@@ -67,6 +67,8 @@
             }
             [[CoreDataUtility sharedInstance] persistContext:ctx wait:NO];
 
+        }else if (error) {
+            NSLog(@"SERVICE FAILURE: %@",[error localizedDescription]);
         }
     }];
     
