@@ -43,10 +43,19 @@
     [self loadTableFooter];
     self.detailTitle.text = self.companyTitle;
     self.canvas.hidden = self.company == nil;
-    
     //enable auto cell height that uses constraints
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 55;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)loadTableFooter

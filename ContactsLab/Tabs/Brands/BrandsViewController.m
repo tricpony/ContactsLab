@@ -25,12 +25,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Brands";
     [self configureFetchResultsConstroller];
     
     //enable auto cell height that uses constraints
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 55;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"Brands";
 }
 
 - (void)configureFetchResultsConstroller

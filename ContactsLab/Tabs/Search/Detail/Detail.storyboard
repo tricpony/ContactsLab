@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5N-w0-6lW" userLabel="Canvas">
-                                <rect key="frame" x="22.5" y="44" width="330" height="579"/>
+                                <rect key="frame" x="22.5" y="98" width="330" height="525"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3J2-uj-6Jz">
                                         <rect key="frame" x="11" y="12" width="308" height="69"/>
@@ -40,10 +40,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYA-pE-mfm">
-                                        <rect key="frame" x="11" y="89" width="308" height="478"/>
+                                        <rect key="frame" x="11" y="89" width="308" height="424"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="727-nQ-sJK">
-                                                <rect key="frame" x="3" y="3" width="302" height="472"/>
+                                                <rect key="frame" x="3" y="3" width="302" height="418"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
@@ -77,9 +77,8 @@
                         <color key="backgroundColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IA6-y1-en8" firstAttribute="bottom" secondItem="U5N-w0-6lW" secondAttribute="bottom" constant="44" id="Cq4-kE-xEU"/>
-                            <constraint firstItem="U5N-w0-6lW" firstAttribute="top" secondItem="zAh-fQ-5Zr" secondAttribute="top" constant="44" id="K9u-hm-6IT">
-                                <variation key="heightClass=compact-widthClass=regular" constant="77"/>
-                                <variation key="heightClass=regular-widthClass=regular" constant="96"/>
+                            <constraint firstItem="U5N-w0-6lW" firstAttribute="top" secondItem="IA6-y1-en8" secondAttribute="top" constant="34" id="K9u-hm-6IT">
+                                <variation key="heightClass=regular-widthClass=regular" constant="34"/>
                             </constraint>
                             <constraint firstItem="IA6-y1-en8" firstAttribute="trailing" secondItem="U5N-w0-6lW" secondAttribute="trailing" constant="22.5" id="VKb-v3-jEP"/>
                             <constraint firstItem="U5N-w0-6lW" firstAttribute="leading" secondItem="IA6-y1-en8" secondAttribute="leading" constant="22.5" id="pRS-7T-tnE"/>
@@ -113,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4B7-r8-WMh" userLabel="Canvas">
-                                <rect key="frame" x="22.5" y="44" width="330" height="579"/>
+                                <rect key="frame" x="22.5" y="98" width="330" height="525"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-q4-ut9">
                                         <rect key="frame" x="11" y="12" width="308" height="69"/>
@@ -134,10 +133,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8d-jJ-qKO">
-                                        <rect key="frame" x="11" y="89" width="308" height="478"/>
+                                        <rect key="frame" x="11" y="89" width="308" height="424"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h82-1a-iqd">
-                                                <rect key="frame" x="3" y="3" width="302" height="472"/>
+                                                <rect key="frame" x="3" y="3" width="302" height="418"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
@@ -173,9 +172,8 @@
                             <constraint firstItem="4B7-r8-WMh" firstAttribute="leading" secondItem="VdR-2v-HWD" secondAttribute="leading" constant="22.5" id="9Ep-Qg-Rw1"/>
                             <constraint firstItem="VdR-2v-HWD" firstAttribute="trailing" secondItem="4B7-r8-WMh" secondAttribute="trailing" constant="22.5" id="UXl-HZ-CVb"/>
                             <constraint firstItem="VdR-2v-HWD" firstAttribute="bottom" secondItem="4B7-r8-WMh" secondAttribute="bottom" constant="44" id="f32-l2-u7w"/>
-                            <constraint firstItem="4B7-r8-WMh" firstAttribute="top" secondItem="osJ-K6-hBH" secondAttribute="top" constant="44" id="puU-LA-JxI">
-                                <variation key="heightClass=compact-widthClass=regular" constant="77"/>
-                                <variation key="heightClass=regular-widthClass=regular" constant="96"/>
+                            <constraint firstItem="4B7-r8-WMh" firstAttribute="top" secondItem="VdR-2v-HWD" secondAttribute="top" constant="34" id="puU-LA-JxI">
+                                <variation key="heightClass=regular-widthClass=regular" constant="34"/>
                             </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VdR-2v-HWD"/>

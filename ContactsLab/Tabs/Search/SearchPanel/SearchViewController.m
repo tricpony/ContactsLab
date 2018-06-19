@@ -454,15 +454,11 @@ static inline UIViewAnimationOptions animationOptionsWithCurve(UIViewAnimationCu
             break;
            
         case GroupedBy_Manager:
-            
-            [self performSegueWithIdentifier:@"detailPersonSegue" sender:nextItem];
-            break;
-            
         case GroupedBy_Person:
-            
+
             [self performSegueWithIdentifier:@"detailPersonSegue" sender:nextItem];
             break;
-
+            
         default:
             break;
     }
