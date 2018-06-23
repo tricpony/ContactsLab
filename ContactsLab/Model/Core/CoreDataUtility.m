@@ -217,13 +217,16 @@ static CoreDataUtility *sharedInstance = nil;
 
 - (void)persistContext:(NSManagedObjectContext *)context wait:(BOOL)wait
 {
+    __weak __typeof(self)weakSelf = self;
+    
     if (wait) {
         [context performBlockAndWait:^{
             [context save:NULL];
             if (context.parentContext) {
                 NSManagedObjectContext *parent = context.parentContext;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self persistContext:parent wait:wait];
+                    __strong __typeof(weakSelf)strongSelf = weakSelf;
+                    [strongSelf persistContext:parent wait:wait];
                 });
             }
         }];
@@ -233,7 +236,8 @@ static CoreDataUtility *sharedInstance = nil;
             if (context.parentContext) {
                 NSManagedObjectContext *parent = context.parentContext;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self persistContext:parent wait:wait];
+                    __strong __typeof(weakSelf)strongSelf = weakSelf;
+                    [strongSelf persistContext:parent wait:wait];
                 });
             }
         }];
