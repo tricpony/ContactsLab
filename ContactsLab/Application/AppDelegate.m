@@ -11,6 +11,7 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import "GBAlerts.h"
 #import "SyncManager.h"
+#import "CoreDataUtility.h"
 #import <netinet/in.h>
 
 @interface AppDelegate ()
@@ -37,7 +38,11 @@
     //fire up the core data stack
     ctx = self.managedObjectContext;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [[SyncManager sharedManager] syncContactsWithCompltionBlock:NULL];
+        [[SyncManager sharedManager] syncContactsWithCompltionBlock:^(BOOL passed, NSDictionary *info) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[CoreDataUtility sharedInstance] persistContext:self.managedObjectContext wait:NO];
+            });
+        }];
     }];
 
     return YES;

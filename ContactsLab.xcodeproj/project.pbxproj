@@ -46,7 +46,6 @@
 		D1FE924620DD1D10002A6DAA /* CTBaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FE924520DD1D10002A6DAA /* CTBaseOperation.m */; };
 		D1FE925620DD220F002A6DAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FE925320DD220D002A6DAA /* main.m */; };
 		D1FE925720DD220F002A6DAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FE925420DD220E002A6DAA /* Assets.xcassets */; };
-		D1FE925820DD220F002A6DAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1FE925520DD220F002A6DAA /* Info.plist */; };
 		D1FE925C20DD2224002A6DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FE925A20DD2223002A6DAA /* LaunchScreen.storyboard */; };
 		D1FE925F20DD229C002A6DAA /* SyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1FE925E20DD229C002A6DAA /* SyncOperation.m */; };
 		F1A6D34D7B39FA04EBA4033F /* Pods_ContactsLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 540A4D9BA4940024724BFCD6 /* Pods_ContactsLab.framework */; };
@@ -512,7 +511,6 @@
 				D1F89D5B20D532D200FA2AA1 /* AddressTableCell.xib in Resources */,
 				D1FE925720DD220F002A6DAA /* Assets.xcassets in Resources */,
 				D1F89D3E20D4151600FA2AA1 /* Detail.storyboard in Resources */,
-				D1FE925820DD220F002A6DAA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
