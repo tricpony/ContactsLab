@@ -220,10 +220,22 @@ static CoreDataUtility *sharedInstance = nil;
     if (wait) {
         [context performBlockAndWait:^{
             [context save:NULL];
+            if (context.parentContext) {
+                NSManagedObjectContext *parent = context.parentContext;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self persistContext:parent wait:wait];
+                });
+            }
         }];
     }else{
         [context performBlock:^{
             [context save:NULL];
+            if (context.parentContext) {
+                NSManagedObjectContext *parent = context.parentContext;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self persistContext:parent wait:wait];
+                });
+            }
         }];
     }
 }

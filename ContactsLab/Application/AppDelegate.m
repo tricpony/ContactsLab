@@ -38,11 +38,7 @@
     //fire up the core data stack
     ctx = self.managedObjectContext;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [[SyncManager sharedManager] syncContactsWithCompltionBlock:^(BOOL passed, NSDictionary *info) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [[CoreDataUtility sharedInstance] persistContext:self.managedObjectContext wait:NO];
-            });
-        }];
+        [[SyncManager sharedManager] syncContactsWithCompltionBlock:NULL];
     }];
 
     return YES;
