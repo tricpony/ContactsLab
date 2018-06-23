@@ -24,9 +24,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    id ctx;
-    
+{    
     /** REACHABILITY **/
     ///////////////////////////////////////////
     //
@@ -35,8 +33,6 @@
     //
     ///////////////////////////////////////////
 
-    //fire up the core data stack
-    ctx = self.managedObjectContext;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [[SyncManager sharedManager] syncContactsWithCompltionBlock:NULL];
     }];
