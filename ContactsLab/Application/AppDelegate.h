@@ -12,6 +12,9 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, assign) BOOL shouldDisplayOfflineAlert;
+@property (nonatomic, readonly) BOOL networkIsReachable;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *childContext;
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

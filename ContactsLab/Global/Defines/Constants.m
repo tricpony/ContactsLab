@@ -46,6 +46,27 @@ NSString *CITY_KEY = @"CITY_KEY";
 NSString *STATE_KEY = @"STATE_KEY";
 NSString *ZIP_KEY = @"ZIP_KEY";
 
+#pragma mark - notifications
+NSString *MBReachabilityChangeNotification = @"networkReachabilityChanged";
+NSString *GBSyncQueueDidClearNotification = @"GBSyncQueueDidClearNotification";
+
 @implementation Constants
+
++ (NSString*)serializationFilePathComponent:(NSString*)filename
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:filename];
+    return filePath;
+}
+
++ (void)deleteSerializedFileAtPath:(NSString*)filepath
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    if ([fm fileExistsAtPath:filepath]) {
+        [fm removeItemAtPath:filepath error:NULL];
+    }
+}
 
 @end

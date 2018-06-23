@@ -89,21 +89,30 @@ static CoreDataUtility *sharedInstance = nil;
 
 - (NSArray*)fetchEntityNamed:(NSString*)entityName withEditContext:(NSManagedObjectContext*)ctx predicate:(NSPredicate*)q sortDescriptors:(NSArray*)sortOrders
 {
-    NSError *error = nil;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:ctx];
+    __block NSArray *results;
     
-    [request setEntity:entity];
+    [ctx performBlockAndWait:^{
+        {
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            NSError *error = nil;
+            NSEntityDescription *entity = nil;
+            
+            entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:ctx];
+            [request setEntity:entity];
+            
+            if (q) {
+                [request setPredicate:q];
+            }
+            
+            if (sortOrders) {
+                [request setSortDescriptors:sortOrders];
+            }
+            
+            results = [ctx executeFetchRequest:request error:&error];
+        }
+    }];
     
-    if (q) {
-        [request setPredicate:q];
-    }
-    
-    if (sortOrders) {
-        [request setSortDescriptors:sortOrders];
-    }
-    
-    return [ctx executeFetchRequest:request error:&error];
+    return results;
     
 }
 
@@ -175,7 +184,11 @@ static CoreDataUtility *sharedInstance = nil;
 
 - (id)insertNewEONamed:(NSString*)entityName editContext:(NSManagedObjectContext*)ctx
 {
-    id newEO = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:ctx];
+    __block id newEO = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:ctx];
+    
+    [ctx performBlockAndWait:^{
+        newEO = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:ctx];
+    }];
     return newEO;
 }
 

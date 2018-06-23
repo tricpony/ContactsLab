@@ -47,6 +47,14 @@ extern NSString *CITY_KEY;
 extern NSString *STATE_KEY;
 extern NSString *ZIP_KEY;
 
+#pragma mark - notifications
+
+extern NSString *MBReachabilityChangeNotification;
+extern NSString *GBSyncQueueDidClearNotification;
+
 @interface Constants : NSObject
+
++ (NSString*)serializationFilePathComponent:(NSString*)filename;
++ (void)deleteSerializedFileAtPath:(NSString*)filepath;
 
 @end
