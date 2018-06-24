@@ -92,7 +92,6 @@ static CoreDataUtility *sharedInstance = nil;
     __block NSArray *results;
     
     [ctx performBlockAndWait:^{
-        {
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
             NSError *error = nil;
             NSEntityDescription *entity = nil;
@@ -109,7 +108,6 @@ static CoreDataUtility *sharedInstance = nil;
             }
             
             results = [ctx executeFetchRequest:request error:&error];
-        }
     }];
     
     return results;
@@ -184,7 +182,7 @@ static CoreDataUtility *sharedInstance = nil;
 
 - (id)insertNewEONamed:(NSString*)entityName editContext:(NSManagedObjectContext*)ctx
 {
-    __block id newEO = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:ctx];
+    __block id newEO = nil;
     
     [ctx performBlockAndWait:^{
         newEO = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:ctx];
