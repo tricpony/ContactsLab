@@ -120,4 +120,10 @@
     return parsedName;
 }
 
+- (BOOL)startsWithString:(NSString*)starting
+{
+    NSUInteger i = [starting length];
+    return i < [self length] && [[self substringToIndex:i] isEqualToString:starting];
+}
+
 @end

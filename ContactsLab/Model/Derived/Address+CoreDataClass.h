@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Address : NSManagedObject
 @property (readonly, nonatomic) NSDictionary *addressAsDictionary;
+@property (readonly, nonatomic) NSDictionary *asGeoCodeDictionary;
 
 + (Address*)createAddress:(NSString*)address context:(NSManagedObjectContext*)ctx;
 

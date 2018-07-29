@@ -10,6 +10,10 @@
 		D1663B8E20DC945E009B950F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D1663B8C20DC945E009B950F /* Reachability.m */; };
 		D1663B9020DC94BC009B950F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1663B8F20DC94BC009B950F /* SystemConfiguration.framework */; };
 		D1663B9520DC9787009B950F /* GBAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = D1663B9320DC9787009B950F /* GBAlerts.m */; };
+		D1CCF70F210DE1DD00984D41 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF70C210DE1DD00984D41 /* MapViewController.m */; };
+		D1CCF710210DE1DD00984D41 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1CCF70E210DE1DD00984D41 /* MapViewController.xib */; };
+		D1CCF713210DE66F00984D41 /* CNPostalAddress+ClinicalTrials.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF712210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.m */; };
+		D1CCF722210DEACD00984D41 /* ChromePresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF71E210DEACD00984D41 /* ChromePresentationController.m */; };
 		D1E4C74820DC90F7009831D9 /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C74720DC90F7009831D9 /* SyncManager.m */; };
 		D1F89CB020D1E8E500FA2AA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89CAF20D1E8E500FA2AA1 /* AppDelegate.m */; };
 		D1F89CB620D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1F89CB220D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld */; };
@@ -59,6 +63,13 @@
 		D1663B8F20DC94BC009B950F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D1663B9320DC9787009B950F /* GBAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBAlerts.m; path = ../../../../../../Applications/GBProjects/ClinicalTrials/ClinicalTrials/Global/Utility/GBAlerts.m; sourceTree = "<group>"; };
 		D1663B9420DC9787009B950F /* GBAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBAlerts.h; path = ../../../../../../Applications/GBProjects/ClinicalTrials/ClinicalTrials/Global/Utility/GBAlerts.h; sourceTree = "<group>"; };
+		D1CCF70C210DE1DD00984D41 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D1CCF70D210DE1DD00984D41 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		D1CCF70E210DE1DD00984D41 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		D1CCF711210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CNPostalAddress+ClinicalTrials.h"; sourceTree = "<group>"; };
+		D1CCF712210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CNPostalAddress+ClinicalTrials.m"; sourceTree = "<group>"; };
+		D1CCF71D210DEACD00984D41 /* ChromePresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChromePresentationController.h; sourceTree = "<group>"; };
+		D1CCF71E210DEACD00984D41 /* ChromePresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChromePresentationController.m; sourceTree = "<group>"; };
 		D1E4C74620DC90F7009831D9 /* SyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncManager.h; sourceTree = "<group>"; };
 		D1E4C74720DC90F7009831D9 /* SyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncManager.m; sourceTree = "<group>"; };
 		D1F89C9120D1E7A100FA2AA1 /* ContactsLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +181,25 @@
 				D1663B9320DC9787009B950F /* GBAlerts.m */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		D1CCF70B210DE1DD00984D41 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D1CCF70D210DE1DD00984D41 /* MapViewController.h */,
+				D1CCF70C210DE1DD00984D41 /* MapViewController.m */,
+				D1CCF70E210DE1DD00984D41 /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		D1CCF71C210DEACD00984D41 /* PresentationController */ = {
+			isa = PBXGroup;
+			children = (
+				D1CCF71D210DEACD00984D41 /* ChromePresentationController.h */,
+				D1CCF71E210DEACD00984D41 /* ChromePresentationController.m */,
+			);
+			path = PresentationController;
 			sourceTree = "<group>";
 		};
 		D1E4C74520DC9096009831D9 /* Sync */ = {
@@ -335,6 +365,8 @@
 		D1F89D0620D2109700FA2AA1 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				D1CCF711210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.h */,
+				D1CCF712210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.m */,
 				D1F89D0720D210BE00FA2AA1 /* NSString+ContactsLab.h */,
 				D1F89D0820D210BE00FA2AA1 /* NSString+ContactsLab.m */,
 				D1F89D1D20D29F6600FA2AA1 /* UIColor+ContactsLab.h */,
@@ -369,6 +401,7 @@
 		D1F89D2320D2C13100FA2AA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1CCF71C210DEACD00984D41 /* PresentationController */,
 				D1F89D2420D2C15400FA2AA1 /* GBSplitViewController.h */,
 				D1F89D2520D2C15400FA2AA1 /* GBSplitViewController.m */,
 			);
@@ -394,6 +427,7 @@
 				D1F89D5620D532D200FA2AA1 /* TableAssets */,
 				D1F89D4820D5239B00FA2AA1 /* Company */,
 				D1F89D4F20D5239B00FA2AA1 /* Person */,
+				D1CCF70B210DE1DD00984D41 /* Map */,
 				D1F89D3D20D4151600FA2AA1 /* Detail.storyboard */,
 			);
 			path = Detail;
@@ -507,6 +541,7 @@
 				D1F89D6120D53FEC00FA2AA1 /* Brands.storyboard in Resources */,
 				D1FE925C20DD2224002A6DAA /* LaunchScreen.storyboard in Resources */,
 				D1F89D2820D2C18000FA2AA1 /* Tabs.storyboard in Resources */,
+				D1CCF710210DE1DD00984D41 /* MapViewController.xib in Resources */,
 				D1F89D1C20D2941900FA2AA1 /* Search.storyboard in Resources */,
 				D1F89D5B20D532D200FA2AA1 /* AddressTableCell.xib in Resources */,
 				D1FE925720DD220F002A6DAA /* Assets.xcassets in Resources */,
@@ -563,6 +598,7 @@
 				D1F89CF620D1EFC100FA2AA1 /* Person+CoreDataClass.m in Sources */,
 				D1F89CB020D1E8E500FA2AA1 /* AppDelegate.m in Sources */,
 				D1F89D0920D210BE00FA2AA1 /* NSString+ContactsLab.m in Sources */,
+				D1CCF722210DEACD00984D41 /* ChromePresentationController.m in Sources */,
 				D1F89CB620D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld in Sources */,
 				D1F89D6420D5772100FA2AA1 /* BrandNavigationController.m in Sources */,
 				D1F89D1F20D29F6600FA2AA1 /* UIColor+ContactsLab.m in Sources */,
@@ -575,7 +611,9 @@
 				D1663B8E20DC945E009B950F /* Reachability.m in Sources */,
 				D1F89D5F20D53FCC00FA2AA1 /* BrandsViewController.m in Sources */,
 				D1F89D2B20D3033B00FA2AA1 /* UIView+ContactsLab.m in Sources */,
+				D1CCF70F210DE1DD00984D41 /* MapViewController.m in Sources */,
 				D1F89CE320D1EECE00FA2AA1 /* Phone+CoreDataProperties.m in Sources */,
+				D1CCF713210DE66F00984D41 /* CNPostalAddress+ClinicalTrials.m in Sources */,
 				D1FE924620DD1D10002A6DAA /* CTBaseOperation.m in Sources */,
 				D1E4C74820DC90F7009831D9 /* SyncManager.m in Sources */,
 				D1F89D0220D1FDFE00FA2AA1 /* Constants.m in Sources */,

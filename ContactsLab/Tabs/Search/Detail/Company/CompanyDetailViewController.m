@@ -7,20 +7,25 @@
 //
 
 #import "CompanyDetailViewController.h"
+#import <Contacts/Contacts.h>
 #import "AddressTableCell.h"
+#import "MapViewController.h"
+#import "ChromePresentationController.h"
+#import "GBSplitViewController.h"
 #import "Constants.h"
 
 #import "UIColor+ContactsLab.h"
 #import "Phone+CoreDataClass.h"
 #import "Address+CoreDataClass.h"
 
-@interface CompanyDetailViewController ()
+@interface CompanyDetailViewController () <UIPopoverPresentationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *canvas;
 @property (weak, nonatomic) IBOutlet UIView *topCanvas;
 @property (weak, nonatomic) IBOutlet UILabel *detailTitle;
 @property (weak, nonatomic) IBOutlet UIView *bottomCanvas;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *groupedSearchResults;
+@property (strong, nonatomic) ChromeTransitioningDelegate *transitionDelegate;
 
 @end
 
@@ -96,6 +101,46 @@
     }
     if (self.company.hasPhones) {
         [self.groupedSearchResults addObject:@{GROUP_TYPE_KEY:@(GroupedBy_Phone),GROUP_DATA_KEY:[self.company.phones allObjects]}];
+    }
+}
+
+#pragma mark Map
+
+- (void)handleLocationTapFor:(Address*)address
+{
+    UINavigationController *nav = nil;
+    MapViewController *map = nil;
+    CNMutablePostalAddress *studyLocation = [[CNMutablePostalAddress alloc] init];
+    
+    if (address.street) {
+        studyLocation.street = address.street;
+    }
+    if (address.zip) {
+        studyLocation.postalCode = address.zip;
+    }
+    if (address.city) {
+        studyLocation.city = address.city;
+    }
+    
+    map = [[MapViewController alloc] initWithNibName:nil bundle:nil];
+    map.addressInfo = studyLocation;
+    map.isModal = YES;
+    if (address.company) {
+        map.title = [NSString stringWithFormat:@"%@ Location",address.company.name];
+    }
+    
+    nav = [[UINavigationController alloc] initWithRootViewController:map];
+    UIUserInterfaceSizeClass hSizeClass = [APP_DELEGATE window].traitCollection.horizontalSizeClass;
+    
+    if (hSizeClass == UIUserInterfaceSizeClassRegular) {
+        self.transitionDelegate = [[ChromeTransitioningDelegate alloc] init];
+        nav.modalPresentationStyle = UIModalPresentationCustom;
+        nav.transitioningDelegate = self.transitionDelegate;
+    }
+    [self presentViewController:nav animated:YES completion:nil];
+    if (hSizeClass == UIUserInterfaceSizeClassRegular) {
+        id <UISplitViewControllerDelegate> spvDelegate = (id)nav.presentationController;
+        [((GBSplitViewController*)self.splitViewController) assignNextActiveForwardDelegate:spvDelegate];
     }
 }
 
@@ -217,7 +262,24 @@
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *contacts = self.groupedSearchResults[indexPath.section][GROUP_DATA_KEY];
+    Address *nextItem = nil;
+    GroupedByType groupedByType = [self.groupedSearchResults[indexPath.section][GROUP_TYPE_KEY] integerValue];
+    
     [tv deselectRowAtIndexPath:indexPath animated:YES];
+    nextItem = contacts[indexPath.row];
+    switch (groupedByType) {
+        case GroupedBy_Address:
+            [self handleLocationTapFor:nextItem];
+            
+            break;
+            
+        case GroupedBy_Phone:
+            
+            break;
+        default:
+            break;
+    }
 }
 
 @end

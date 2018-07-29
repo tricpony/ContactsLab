@@ -14,5 +14,6 @@
 - (NSString*)trim;
 - (NSAttributedString*)attributedStringHighlightingRange:(NSRange)range color:(UIColor*)highLightColor;
 - (NSDictionary*)parseFirstAndLastName;
+- (BOOL)startsWithString:(NSString*)starting;
 
 @end

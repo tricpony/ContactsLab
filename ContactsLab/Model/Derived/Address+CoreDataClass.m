@@ -10,6 +10,7 @@
 #import "Address+CoreDataClass.h"
 #import "CoreDataUtility.h"
 #import "NSString+ContactsLab.h"
+#import <Contacts/Contacts.h>
 #import "Constants.h"
 
 #define STREET @"street"
@@ -105,6 +106,23 @@
     
     //all eos have a create date so set it here
     [self performSelector:@selector(setCreateDate:) withObject:[NSDate date]];
+}
+
+- (NSDictionary*)asGeoCodeDictionary
+{
+    NSMutableDictionary *geoDict = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    if (self.street) {
+        geoDict[CNPostalAddressStreetKey] = self.street;
+    }
+    if (self.zip) {
+        geoDict[CNPostalAddressPostalCodeKey] = self.zip;
+    }
+    if (self.city) {
+        geoDict[CNPostalAddressCityKey] = self.city;
+    }
+    
+    return [NSDictionary dictionaryWithDictionary:geoDict];
 }
 
 @end
