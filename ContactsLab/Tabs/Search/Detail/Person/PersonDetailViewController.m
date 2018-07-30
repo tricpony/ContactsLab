@@ -120,6 +120,7 @@
     if (address.person) {
         map.topTitle = [NSString stringWithFormat:@"%@ Location",address.person.fullname];
         map.bottomTitle = [NSString stringWithFormat:@"%@, %@",address.street,address.city];
+        map.researchCenterName = address.person.fullname;
     }
     
     UIUserInterfaceSizeClass hSizeClass = [APP_DELEGATE window].traitCollection.horizontalSizeClass;
