@@ -13,5 +13,7 @@
 @property (nonatomic, strong) CNMutablePostalAddress *addressInfo;
 @property (strong, nonatomic) NSString *researchCenterName;
 @property (nonatomic, assign) BOOL isModal;
+@property (strong, nonatomic) NSString *topTitle;
+@property (strong, nonatomic) NSString *bottomTitle;
 
 @end

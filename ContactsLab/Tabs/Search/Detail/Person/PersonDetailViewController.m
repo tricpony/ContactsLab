@@ -116,13 +116,13 @@
     map = [[MapViewController alloc] initWithNibName:nil bundle:nil];
     map.addressInfo = studyLocation;
     map.isModal = YES;
-    if (address.company) {
-        map.title = [NSString stringWithFormat:@"%@ Location",address.person.fullname];
+    nav = [[UINavigationController alloc] initWithRootViewController:map];
+    if (address.person) {
+        map.topTitle = [NSString stringWithFormat:@"%@ Location",address.person.fullname];
+        map.bottomTitle = [NSString stringWithFormat:@"%@, %@",address.street,address.city];
     }
     
-    nav = [[UINavigationController alloc] initWithRootViewController:map];
     UIUserInterfaceSizeClass hSizeClass = [APP_DELEGATE window].traitCollection.horizontalSizeClass;
-    
     if (hSizeClass == UIUserInterfaceSizeClassRegular) {
         self.transitionDelegate = [[ChromeTransitioningDelegate alloc] init];
         nav.modalPresentationStyle = UIModalPresentationCustom;

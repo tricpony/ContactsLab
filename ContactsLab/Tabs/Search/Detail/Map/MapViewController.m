@@ -16,6 +16,7 @@
 #import "NSString+ContactsLab.h"
 #import "GBAlerts.h"
 #import "CNPostalAddress+ClinicalTrials.h"
+#import "MapTitleView.h"
 
 int pinColorIndex = 0;
 
@@ -71,10 +72,23 @@ int pinColorIndex = 0;
     }
 }
 
+- (void)loadTitleView
+{
+    UINib *nib;
+    MapTitleView *titleBox;
+    
+    nib = [UINib nibWithNibName:@"MapTitleView" bundle:[NSBundle mainBundle]];
+    titleBox = [[nib instantiateWithOwner:self options:0] firstObject];
+    titleBox.topLabel.text = self.topTitle;
+    titleBox.bottomLabel.text = self.bottomTitle;
+    self.navigationItem.titleView = titleBox;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self loadNavButtons];
+    [self loadTitleView];
     UIUserInterfaceSizeClass hSizeClass = [APP_DELEGATE window].traitCollection.horizontalSizeClass;
     
     if (hSizeClass == UIUserInterfaceSizeClassRegular) {
@@ -117,50 +131,6 @@ int pinColorIndex = 0;
                 [self.mapView addAnnotation:annDelegate];
                 [self.mapView setRegion:region animated:YES];
                 [self.mapView regionThatFits:region];
-                
-                //refine the search to look for a match on the research center name
-                //                request = [[MKLocalSearchRequest alloc] init];
-                //
-                //                request.region = region;
-                //                request.naturalLanguageQuery = self.researchCenterName;
-                //                self.extraSearch = [[MKLocalSearch alloc] initWithRequest:request];
-                //                [self.extraSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
-                //                    NSString *singleQuote = @"'";
-                //                    NSString *theWord = @"The";
-                //
-                //                    for (MKMapItem *mapItem in response.mapItems) {
-                //                        NSString *name = mapItem.name;
-                //                        BOOL shouldMovePin = NO;
-                //
-                //                        //omit single quotes if the research center name does not have any
-                //                        if ([name containsString:singleQuote] && ![self.researchCenterName containsString:singleQuote]) {
-                //                            name = [name stringByReplacingOccurrencesOfString:singleQuote withString:@""];
-                //                        }
-                //
-                //                        //omit a leading 'The' if the research center name does not have one
-                //                        if ([name startsWithString:theWord] && ![self.researchCenterName startsWithString:theWord]) {
-                //                            name = [name removeFirstWord];
-                //                        }
-                //
-                //                        if ([[name trim] caseInsensitiveCompare:[self.researchCenterName trim]] == NSOrderedSame) {
-                //                            shouldMovePin = YES;
-                //                        }else{
-                //                            //if this is a US based facility the research center name has been spell checked in AbstractViewController
-                //                            shouldMovePin = [self.researchCenterName containsString:name];
-                //                        }
-                //
-                //                        if (shouldMovePin) {
-                //                            MKCoordinateRegion nextRegion;
-                //
-                //                            nextRegion.center = mapItem.placemark.location.coordinate;
-                //                            nextRegion.span = span;
-                //
-                //                            annDelegate.placemark = mapItem.placemark;
-                //                            [self.mapView addAnnotation:annDelegate];
-                //                            [self.mapView setRegion:nextRegion animated:YES];
-                //                            [self.mapView regionThatFits:nextRegion];
-                //                            break;
-                //                        }
             }
         }
         

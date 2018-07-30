@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		D1663B8E20DC945E009B950F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D1663B8C20DC945E009B950F /* Reachability.m */; };
 		D1663B9020DC94BC009B950F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1663B8F20DC94BC009B950F /* SystemConfiguration.framework */; };
-		D1663B9520DC9787009B950F /* GBAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = D1663B9320DC9787009B950F /* GBAlerts.m */; };
 		D1CCF70F210DE1DD00984D41 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF70C210DE1DD00984D41 /* MapViewController.m */; };
 		D1CCF710210DE1DD00984D41 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1CCF70E210DE1DD00984D41 /* MapViewController.xib */; };
 		D1CCF713210DE66F00984D41 /* CNPostalAddress+ClinicalTrials.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF712210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.m */; };
 		D1CCF722210DEACD00984D41 /* ChromePresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF71E210DEACD00984D41 /* ChromePresentationController.m */; };
+		D1CCF726210E8B3000984D41 /* GBAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF724210E8B3000984D41 /* GBAlerts.m */; };
+		D1CCF72A210E8C4A00984D41 /* MapTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCF729210E8C4A00984D41 /* MapTitleView.m */; };
+		D1CCF72C210E8C5B00984D41 /* MapTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1CCF72B210E8C5B00984D41 /* MapTitleView.xib */; };
 		D1E4C74820DC90F7009831D9 /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C74720DC90F7009831D9 /* SyncManager.m */; };
 		D1F89CB020D1E8E500FA2AA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F89CAF20D1E8E500FA2AA1 /* AppDelegate.m */; };
 		D1F89CB620D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1F89CB220D1E8F500FA2AA1 /* ContactsLab.xcdatamodeld */; };
@@ -61,8 +63,6 @@
 		D1663B8C20DC945E009B950F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D1663B8D20DC945E009B950F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D1663B8F20DC94BC009B950F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D1663B9320DC9787009B950F /* GBAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBAlerts.m; path = ../../../../../../Applications/GBProjects/ClinicalTrials/ClinicalTrials/Global/Utility/GBAlerts.m; sourceTree = "<group>"; };
-		D1663B9420DC9787009B950F /* GBAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBAlerts.h; path = ../../../../../../Applications/GBProjects/ClinicalTrials/ClinicalTrials/Global/Utility/GBAlerts.h; sourceTree = "<group>"; };
 		D1CCF70C210DE1DD00984D41 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		D1CCF70D210DE1DD00984D41 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D1CCF70E210DE1DD00984D41 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -70,6 +70,11 @@
 		D1CCF712210DE66E00984D41 /* CNPostalAddress+ClinicalTrials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CNPostalAddress+ClinicalTrials.m"; sourceTree = "<group>"; };
 		D1CCF71D210DEACD00984D41 /* ChromePresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChromePresentationController.h; sourceTree = "<group>"; };
 		D1CCF71E210DEACD00984D41 /* ChromePresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChromePresentationController.m; sourceTree = "<group>"; };
+		D1CCF724210E8B3000984D41 /* GBAlerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAlerts.m; sourceTree = "<group>"; };
+		D1CCF725210E8B3000984D41 /* GBAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAlerts.h; sourceTree = "<group>"; };
+		D1CCF728210E8C4A00984D41 /* MapTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapTitleView.h; sourceTree = "<group>"; };
+		D1CCF729210E8C4A00984D41 /* MapTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTitleView.m; sourceTree = "<group>"; };
+		D1CCF72B210E8C5B00984D41 /* MapTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTitleView.xib; sourceTree = "<group>"; };
 		D1E4C74620DC90F7009831D9 /* SyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncManager.h; sourceTree = "<group>"; };
 		D1E4C74720DC90F7009831D9 /* SyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncManager.m; sourceTree = "<group>"; };
 		D1F89C9120D1E7A100FA2AA1 /* ContactsLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,8 +182,8 @@
 		D1663B9220DC9760009B950F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				D1663B9420DC9787009B950F /* GBAlerts.h */,
-				D1663B9320DC9787009B950F /* GBAlerts.m */,
+				D1CCF725210E8B3000984D41 /* GBAlerts.h */,
+				D1CCF724210E8B3000984D41 /* GBAlerts.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 		D1CCF70B210DE1DD00984D41 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				D1CCF727210E8C0100984D41 /* TitleView */,
 				D1CCF70D210DE1DD00984D41 /* MapViewController.h */,
 				D1CCF70C210DE1DD00984D41 /* MapViewController.m */,
 				D1CCF70E210DE1DD00984D41 /* MapViewController.xib */,
@@ -200,6 +206,16 @@
 				D1CCF71E210DEACD00984D41 /* ChromePresentationController.m */,
 			);
 			path = PresentationController;
+			sourceTree = "<group>";
+		};
+		D1CCF727210E8C0100984D41 /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				D1CCF728210E8C4A00984D41 /* MapTitleView.h */,
+				D1CCF729210E8C4A00984D41 /* MapTitleView.m */,
+				D1CCF72B210E8C5B00984D41 /* MapTitleView.xib */,
+			);
+			path = TitleView;
 			sourceTree = "<group>";
 		};
 		D1E4C74520DC9096009831D9 /* Sync */ = {
@@ -538,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CCF72C210E8C5B00984D41 /* MapTitleView.xib in Resources */,
 				D1F89D6120D53FEC00FA2AA1 /* Brands.storyboard in Resources */,
 				D1FE925C20DD2224002A6DAA /* LaunchScreen.storyboard in Resources */,
 				D1F89D2820D2C18000FA2AA1 /* Tabs.storyboard in Resources */,
@@ -607,6 +624,7 @@
 				D1F89D0520D1FFBF00FA2AA1 /* ContactsLabService.m in Sources */,
 				D1F89CF520D1EFC100FA2AA1 /* Phone+CoreDataClass.m in Sources */,
 				D1F89D2220D2C0F800FA2AA1 /* GBTabBarController.m in Sources */,
+				D1CCF72A210E8C4A00984D41 /* MapTitleView.m in Sources */,
 				D1F89D3820D3716400FA2AA1 /* SearchNavigationController.m in Sources */,
 				D1663B8E20DC945E009B950F /* Reachability.m in Sources */,
 				D1F89D5F20D53FCC00FA2AA1 /* BrandsViewController.m in Sources */,
@@ -620,11 +638,11 @@
 				D1F89CF920D1F00B00FA2AA1 /* CoreDataUtility.m in Sources */,
 				D1F89D5A20D532D200FA2AA1 /* AddressTableCell.m in Sources */,
 				D1F89D5520D523C800FA2AA1 /* PersonDetailViewController.m in Sources */,
+				D1CCF726210E8B3000984D41 /* GBAlerts.m in Sources */,
 				D1F89D1720D293E200FA2AA1 /* AutoCompleteSearchController.m in Sources */,
 				D1F89CE920D1EECE00FA2AA1 /* Address+CoreDataProperties.m in Sources */,
 				D1F89D2620D2C15400FA2AA1 /* GBSplitViewController.m in Sources */,
 				D1F89CF320D1EFC100FA2AA1 /* Address+CoreDataClass.m in Sources */,
-				D1663B9520DC9787009B950F /* GBAlerts.m in Sources */,
 				D1FE925F20DD229C002A6DAA /* SyncOperation.m in Sources */,
 				D1F89D3720D3716400FA2AA1 /* CustomAppearanceNavigationController.m in Sources */,
 				D1F89D5020D5239B00FA2AA1 /* CompanyDetailViewController.m in Sources */,
