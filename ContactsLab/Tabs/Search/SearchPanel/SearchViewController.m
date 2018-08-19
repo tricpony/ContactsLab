@@ -113,6 +113,10 @@
     
 }
 
+/**
+ Based on tutorial found here:
+ https://www.raywenderlich.com/472-uisearchcontroller-tutorial-getting-started
+ **/
 - (void)setupSearchController
 {
     AutoCompleteSearchController *autoCompleteVC;
